@@ -11,7 +11,7 @@ export default function ClientSurvey() {
         <View style={styles.firstScreen}>
           <Text style={styles.headerText}>Personalized for YOU!</Text>
           <Image
-            style={styles.firstScreenImage}
+            style={styles.screenImage}
             source={require("../assets/clientSurveyImage.png")}
           />
           <Text style={styles.contentText}>
@@ -20,30 +20,34 @@ export default function ClientSurvey() {
             needs.
           </Text>
         </View>
-        <View style={styles.secondScreen}>
+        <View style={styles.screen}>
+          <Image
+            style={styles.squiggleRight}
+            source={require("../assets/squiggle.png")}
+          />
           <Text style={styles.questionText}>How much time do you have?</Text>
-          <TouchableOpacity style={styles.timeOptionsContainer}>
+          <TouchableOpacity style={styles.optionsContainer}>
             <Image source={require("../assets/radioButton.png")} />
-            <Text style={styles.timeOptionsText}>Less then 15 minutes</Text>
+            <Text style={styles.optionsText}>Less then 15 minutes</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.timeOptionsContainer}>
+          <TouchableOpacity style={styles.optionsContainer}>
             <Image source={require("../assets/radioButton.png")} />
-            <Text style={styles.timeOptionsText}>15 to 30 minutes</Text>
+            <Text style={styles.optionsText}>15 to 30 minutes</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.timeOptionsContainer}>
+          <TouchableOpacity style={styles.optionsContainer}>
             <Image source={require("../assets/radioButton.png")} />
-            <Text style={styles.timeOptionsText}>30 to 60 minutes</Text>
+            <Text style={styles.optionsText}>30 to 60 minutes</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.timeOptionsContainer}>
+          <TouchableOpacity style={styles.optionsContainer}>
             <Image source={require("../assets/radioButton.png")} />
-            <Text style={styles.timeOptionsText}>60+ minutes</Text>
+            <Text style={styles.optionsText}>60+ minutes</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.timeOptionsContainer}>
+          <TouchableOpacity style={styles.optionsContainer}>
             <Image source={require("../assets/radioButton.png")} />
-            <Text style={styles.timeOptionsText}>I'm flexible!</Text>
+            <Text style={styles.optionsText}>I'm flexible!</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.thirdScreen}>
+        <View style={styles.screen}>
           <Text style={styles.questionText}>Where are you?</Text>
           <View style={styles.locationContainer}>
             <TouchableOpacity>
@@ -63,11 +67,141 @@ export default function ClientSurvey() {
               <Text style={styles.locationOptionsText}>Store</Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.moreLocationButton}>
-            <Text style={styles.moreLocationText}>View More Locations</Text>
+          <TouchableOpacity style={styles.moreButton}>
+            <Text style={styles.moreText}>View More Locations</Text>
             <Image source={require("../assets/caret.png")} />
           </TouchableOpacity>
         </View>
+        <View style={styles.screen}>
+          <Image
+            style={styles.circle}
+            source={require("../assets/circles.png")}
+          />
+          <Text style={styles.questionText}>
+            What skills do you want to practice?
+          </Text>
+          <View style={styles.skillButtonContainer}>
+            <TouchableOpacity style={styles.skillButton}>
+              <Text style={styles.skillsButtonText}>Gross Motor</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.skillButton}>
+              <Text style={styles.skillsButtonText}>Fine Motor</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.skillButtonContainer}>
+            <TouchableOpacity style={styles.skillButton}>
+              <Text style={styles.skillsButtonText}>Communication</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.skillButton}>
+              <Text style={styles.skillsButtonText}>Social Play</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.skillButtonContainer}>
+            <TouchableOpacity style={styles.skillButton}>
+              <Text style={styles.skillsButtonText}>Daily Living Skills</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.skillButton}>
+              <Text style={styles.skillsButtonText}>I'm Flexible</Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity style={styles.moreButton}>
+            <Text style={styles.moreText}>View More Skills</Text>
+            <Image source={require("../assets/caret.png")} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.screen}>
+          <Text style={styles.questionText}>Is anyone with you today?</Text>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 24 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Sam, partner, adult
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 30 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Lee, child, 12yrs
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 30 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Devon, child, 6yrs
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 30 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Tina, caregiver, adult
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.screen}>
+          <Image
+            style={styles.squares}
+            source={require("../assets/squares.png")}
+          />
+          <Text style={styles.questionText}>
+            What equipment do you have today?
+          </Text>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 24 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Wheelchair
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 30 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Walker
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 30 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Stander
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.optionsContainer, marginTop: 30 }}
+          >
+            <Image source={require("../assets/squareRadioButton.png")} />
+            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
+              Not applicable
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.screen}>
+          <Text style={styles.questionText}>How is your child feeling?</Text>
+          <Image
+            style={styles.screenImage}
+            source={require("../assets/moodCardGood.png")}
+          />
+        </View>
+        <View style={styles.screen}>
+          <Text style={styles.questionText}>How are you feeling?</Text>
+          <Image
+            style={styles.screenImage}
+            source={require("../assets/moodCardGreat.png")}
+          />
+        </View>
+        <TouchableOpacity style={styles.submitButton}>
+          <Text style={styles.submitText}>Submit</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -84,13 +218,10 @@ const styles = StyleSheet.create({
   firstScreen: {
     marginTop: 32,
   },
-  secondScreen: {
+  screen: {
     marginTop: 84,
   },
-  thirdScreen: {
-    marginTop: 84,
-  },
-  firstScreenImage: {
+  screenImage: {
     alignSelf: "center",
   },
   headerText: {
@@ -114,11 +245,11 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     marginBottom: 8,
   },
-  timeOptionsContainer: {
+  optionsContainer: {
     flexDirection: "row",
     marginTop: 16,
   },
-  timeOptionsText: {
+  optionsText: {
     fontFamily: "Arimo-Regular",
     fontSize: 16,
     lineHeight: 24,
@@ -135,15 +266,68 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     alignSelf: "center",
   },
-  moreLocationButton: {
+  moreButton: {
     flexDirection: "row",
     alignSelf: "flex-end",
     margin: 24,
   },
-  moreLocationText: {
+  moreText: {
     fontFamily: "Jost-Medium",
     fontSize: 16,
     lineHeight: 24,
     color: "#3350E9",
+  },
+  skillsButtonText: {
+    fontFamily: "Jost-Medium",
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  skillButton: {
+    borderColor: "#3350E9",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 8,
+    width: 158,
+    height: 48,
+    paddingVertical: 12,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  skillButtonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 14,
+  },
+  submitButton: {
+    width: 343,
+    backgroundColor: "#3350E9",
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+    marginTop: 36,
+  },
+  submitText: {
+    color: "#FFF",
+    fontFamily: "Jost-Medium",
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  squares: {
+    position: "absolute",
+    top: -90,
+    right: -30,
+  },
+  circle: {
+    position: "absolute",
+    left: -46,
+    transform: "rotate(-39.212deg)",
+  },
+  squiggleRight: {
+    position: "absolute",
+    top: -50,
+    right: -10,
+    transform: "rotate(-13.807deg)",
   },
 });
