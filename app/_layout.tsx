@@ -3,6 +3,9 @@ import { Text, StyleSheet, Image } from "react-native";
 import { useEffect, useState } from "react";
 import * as Font from "expo-font";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Tabs } from "expo-router/tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { router } from "expo-router";
 
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -26,25 +29,27 @@ export default function Layout() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#A920C9",
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
-        headerTitle: "",
-        headerTitleAlign: "left",
-        headerLeft: () => <Text style={styles.headerText}>ParentApp</Text>,
-        headerRight: () => (
-          <TouchableOpacity>
-            <Image source={require("../assets/hamburger.png")} />
-          </TouchableOpacity>
-        ),
-      }}
-    />
+    <>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#A920C9",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+          headerTitle: "",
+          headerTitleAlign: "left",
+          headerLeft: () => <Text style={styles.headerText}>ParentApp</Text>,
+          headerRight: () => (
+            <TouchableOpacity>
+              <Image source={require("../assets/hamburger.png")} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+    </>
   );
 }
 const styles = StyleSheet.create({

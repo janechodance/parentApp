@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -18,7 +19,10 @@ export default function App() {
           We want to meet you where you're at and can help pick an activity just
           for you!
         </Text>
-        <TouchableOpacity style={styles.welcomeButton}>
+        <TouchableOpacity
+          onPress={() => router.push("/clientSurvey")}
+          style={styles.welcomeButton}
+        >
           <Text style={styles.welcomeButtonText}>My Activity Finder</Text>
         </TouchableOpacity>
       </View>
