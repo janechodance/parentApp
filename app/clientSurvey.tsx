@@ -311,6 +311,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 8,
     marginTop: 36,
+    marginBottom: 32,
   },
   submitText: {
     color: "#FFF",

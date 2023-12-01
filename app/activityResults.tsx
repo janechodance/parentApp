@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, VirtualizedList } from "react-native";
 import {
   FlatList,
   ScrollView,
@@ -6,14 +6,13 @@ import {
 } from "react-native-gesture-handler";
 import { router } from "expo-router";
 import ActivityCard from "./component/activityCard";
+import "react-native-get-random-values";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ActivityResults() {
   const activities = [1, 2, 3, 4, 5];
   return (
-    <ScrollView
-      style={styles.scrollView}
-      contentContainerStyle={{ alignItems: "center" }}
-    >
+    <View style={styles.scrollView}>
       <View style={styles.container}>
         <View style={styles.firstScreen}>
           <TouchableOpacity onPress={() => router.push("./clientSurvey")}>
@@ -21,25 +20,24 @@ export default function ActivityResults() {
           </TouchableOpacity>
           <Text style={styles.headerText}>Some Options for YOU!</Text>
         </View>
-        <View style={styles.activityCardScreen}>
-          <ActivityCard />
-        </View>
         <FlatList
           data={activities}
           renderItem={({ item }) => <ActivityCard />}
+          key={uuidv4()}
         />
         <View style={styles.moreButton}>
           <Text style={styles.moreText}>View More</Text>
           <Image source={require("../assets/caret.png")}></Image>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: "#FFFCFC",
+    alignItems: "center",
   },
   container: {
     flex: 1,
@@ -97,6 +95,8 @@ const styles = StyleSheet.create({
   moreButton: {
     flexDirection: "row",
     alignSelf: "center",
+    marginBottom: 32,
+    marginTop: 32,
   },
   moreText: {
     fontFamily: "Jost-Medium",

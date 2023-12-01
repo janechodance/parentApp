@@ -57,17 +57,20 @@ export default function ActivityCard() {
 
 const styles = StyleSheet.create({
   container: {
-    width: 342,
+    width: 338,
     height: 406,
-    shadowColor: "#E5E5E5",
-    shadowRadius: 10,
-    borderColor: "black",
-    borderWidth: 1,
+    borderRadius: 8,
     marginBottom: 32,
+    backgroundColor: "#FFFCFC",
+    shadowColor: "#E5E5E5",
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 10,
   },
+
   background: {
     backgroundColor: "#4BD1EF",
-    width: 342,
+    width: 338,
     height: 154,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
