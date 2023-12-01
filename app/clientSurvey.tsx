@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
@@ -199,7 +200,10 @@ export default function ClientSurvey() {
             source={require("../assets/moodCardGreat.png")}
           />
         </View>
-        <TouchableOpacity style={styles.submitButton}>
+        <TouchableOpacity
+          onPress={() => router.push("./activityResults")}
+          style={styles.submitButton}
+        >
           <Text style={styles.submitText}>Submit</Text>
         </TouchableOpacity>
       </View>

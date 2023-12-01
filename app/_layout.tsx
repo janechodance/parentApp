@@ -6,6 +6,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Tabs } from "expo-router/tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { router } from "expo-router";
+import Header from "./header";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import App from ".";
+import ClientSurvey from "./clientSurvey";
 
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);
