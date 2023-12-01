@@ -1,9 +1,5 @@
-import { View, Text, StyleSheet, Image, VirtualizedList } from "react-native";
-import {
-  FlatList,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native-gesture-handler";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { router } from "expo-router";
 import ActivityCard from "./component/activityCard";
 import "react-native-get-random-values";
@@ -16,18 +12,24 @@ export default function ActivityResults() {
       <View style={styles.container}>
         <View style={styles.firstScreen}>
           <TouchableOpacity onPress={() => router.push("./clientSurvey")}>
-            <Image source={require("../assets/arrowLeft.png")} />
+            <Image source={require("../assets/icons/arrowLeft.png")} />
           </TouchableOpacity>
           <Text style={styles.headerText}>Some Options for YOU!</Text>
         </View>
         <FlatList
           data={activities}
-          renderItem={({ item }) => <ActivityCard />}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => router.push("./activity/activityDetails")}
+            >
+              <ActivityCard />
+            </TouchableOpacity>
+          )}
           key={uuidv4()}
         />
         <View style={styles.moreButton}>
           <Text style={styles.moreText}>View More</Text>
-          <Image source={require("../assets/caret.png")}></Image>
+          <Image source={require("../assets/icons/caret.png")}></Image>
         </View>
       </View>
     </View>

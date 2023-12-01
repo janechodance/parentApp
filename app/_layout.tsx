@@ -46,7 +46,7 @@ export default function Layout() {
           ),
           headerRight: () => (
             <TouchableOpacity>
-              <Image source={require("../assets/hamburger.png")} />
+              <Image source={require("../assets/icons/hamburger.png")} />
             </TouchableOpacity>
           ),
         }}

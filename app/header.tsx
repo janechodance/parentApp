@@ -16,7 +16,7 @@ export default function Header() {
         headerLeft: () => <Text style={styles.headerText}>ParentApp</Text>,
         headerRight: () => (
           <TouchableOpacity>
-            <Image source={require("../assets/hamburger.png")} />
+            <Image source={require("../assets/icons/hamburger.png")} />
           </TouchableOpacity>
         ),
       }}

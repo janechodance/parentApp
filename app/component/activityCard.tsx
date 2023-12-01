@@ -13,11 +13,11 @@ export default function ActivityCard() {
       <View style={styles.background}>
         <Image
           style={styles.activityImage}
-          source={require("../../assets/activityImage1.png")}
+          source={require("../../assets/background/activityImage1.png")}
         />
         <Image
           style={styles.dottedCircle}
-          source={require("../../assets/dottedCircle.png")}
+          source={require("../../assets/background/dottedCircle.png")}
         />
       </View>
       <View style={styles.detailContainer}>

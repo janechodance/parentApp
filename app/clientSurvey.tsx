@@ -13,7 +13,7 @@ export default function ClientSurvey() {
           <Text style={styles.headerText}>Personalized for YOU!</Text>
           <Image
             style={styles.screenImage}
-            source={require("../assets/clientSurveyImage.png")}
+            source={require("../assets/background/clientSurveyImage.png")}
           />
           <Text style={styles.contentText}>
             We are here to help! Please enter as much or as little information
@@ -24,27 +24,27 @@ export default function ClientSurvey() {
         <View style={styles.screen}>
           <Image
             style={styles.squiggleRight}
-            source={require("../assets/squiggle.png")}
+            source={require("../assets/background/squiggle.png")}
           />
           <Text style={styles.questionText}>How much time do you have?</Text>
           <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/radioButton.png")} />
+            <Image source={require("../assets/icons/radioButton.png")} />
             <Text style={styles.optionsText}>Less then 15 minutes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/radioButton.png")} />
+            <Image source={require("../assets/icons/radioButton.png")} />
             <Text style={styles.optionsText}>15 to 30 minutes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/radioButton.png")} />
+            <Image source={require("../assets/icons/radioButton.png")} />
             <Text style={styles.optionsText}>30 to 60 minutes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/radioButton.png")} />
+            <Image source={require("../assets/icons/radioButton.png")} />
             <Text style={styles.optionsText}>60+ minutes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/radioButton.png")} />
+            <Image source={require("../assets/icons/radioButton.png")} />
             <Text style={styles.optionsText}>I'm flexible!</Text>
           </TouchableOpacity>
         </View>
@@ -52,31 +52,39 @@ export default function ClientSurvey() {
           <Text style={styles.questionText}>Where are you?</Text>
           <View style={styles.locationContainer}>
             <TouchableOpacity>
-              <Image source={require("../assets/homeLocationButton.png")} />
+              <Image
+                source={require("../assets/icons/homeLocationButton.png")}
+              />
               <Text style={styles.locationOptionsText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Image source={require("../assets/outsideLocationButton.png")} />
+              <Image
+                source={require("../assets/icons/outsideLocationButton.png")}
+              />
               <Text style={styles.locationOptionsText}>Outside</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Image source={require("../assets/carLocationButton.png")} />
+              <Image
+                source={require("../assets/icons/carLocationButton.png")}
+              />
               <Text style={styles.locationOptionsText}>Car</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Image source={require("../assets/storeLocationButton.png")} />
+              <Image
+                source={require("../assets/icons/storeLocationButton.png")}
+              />
               <Text style={styles.locationOptionsText}>Store</Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity style={styles.moreButton}>
             <Text style={styles.moreText}>View More Locations</Text>
-            <Image source={require("../assets/caret.png")} />
+            <Image source={require("../assets/icons/caret.png")} />
           </TouchableOpacity>
         </View>
         <View style={styles.screen}>
           <Image
             style={styles.circle}
-            source={require("../assets/circles.png")}
+            source={require("../assets/background/circles.png")}
           />
           <Text style={styles.questionText}>
             What skills do you want to practice?
@@ -107,7 +115,7 @@ export default function ClientSurvey() {
           </View>
           <TouchableOpacity style={styles.moreButton}>
             <Text style={styles.moreText}>View More Skills</Text>
-            <Image source={require("../assets/caret.png")} />
+            <Image source={require("../assets/icons/caret.png")} />
           </TouchableOpacity>
         </View>
         <View style={styles.screen}>
@@ -115,7 +123,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 24 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Sam, partner, adult
             </Text>
@@ -123,7 +131,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 30 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Lee, child, 12yrs
             </Text>
@@ -131,7 +139,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 30 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Devon, child, 6yrs
             </Text>
@@ -139,7 +147,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 30 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Tina, caregiver, adult
             </Text>
@@ -148,7 +156,7 @@ export default function ClientSurvey() {
         <View style={styles.screen}>
           <Image
             style={styles.squares}
-            source={require("../assets/squares.png")}
+            source={require("../assets/background/squares.png")}
           />
           <Text style={styles.questionText}>
             What equipment do you have today?
@@ -156,7 +164,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 24 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Wheelchair
             </Text>
@@ -164,7 +172,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 30 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Walker
             </Text>
@@ -172,7 +180,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 30 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Stander
             </Text>
@@ -180,7 +188,7 @@ export default function ClientSurvey() {
           <TouchableOpacity
             style={{ ...styles.optionsContainer, marginTop: 30 }}
           >
-            <Image source={require("../assets/squareRadioButton.png")} />
+            <Image source={require("../assets/icons/squareRadioButton.png")} />
             <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
               Not applicable
             </Text>

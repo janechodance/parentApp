@@ -7,13 +7,13 @@ export default function App() {
       <View style={styles.container}>
         <Image
           style={styles.welcomeScreenBackground}
-          source={require("../assets/circles.png")}
+          source={require("../assets/background/circles.png")}
         ></Image>
         <View style={styles.welcomeScreen}>
           <Text style={styles.welcomeText}>Welcome Back, Max!</Text>
           <Image
             style={styles.welcomeImage}
-            source={require("../assets/homepageImage.png")}
+            source={require("../assets/background/homepageImage.png")}
           />
           <Text style={styles.welcomeDescriptionText}>
             We want to meet you where you're at and can help pick an activity
