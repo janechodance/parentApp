@@ -3,14 +3,7 @@ import { Text, StyleSheet, Image } from "react-native";
 import { useEffect, useState } from "react";
 import * as Font from "expo-font";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Tabs } from "expo-router/tabs";
-import { NavigationContainer } from "@react-navigation/native";
 import { router } from "expo-router";
-import Header from "./header";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
-import App from ".";
-import ClientSurvey from "./clientSurvey";
 
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -46,7 +39,11 @@ export default function Layout() {
           },
           headerTitle: "",
           headerTitleAlign: "left",
-          headerLeft: () => <Text style={styles.headerText}>ParentApp</Text>,
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.push("/")}>
+              <Text style={styles.headerText}>ParentApp</Text>
+            </TouchableOpacity>
+          ),
           headerRight: () => (
             <TouchableOpacity>
               <Image source={require("../assets/hamburger.png")} />
