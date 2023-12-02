@@ -25,7 +25,7 @@ export default function ActivityCard() {
           data={skills}
           renderItem={({ item }) => (
             <View style={styles.skillTag}>
-              <Text>{item}</Text>
+              <Text style={styles.skillText}>{item}</Text>
             </View>
           )}
           keyExtractor={(item) => item}

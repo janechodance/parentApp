@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 import ActivityHeader from "./activityHeader";
+import ActivityHistory from "./activityHistory";
 
 export default function ActivityDetails() {
   return (
@@ -35,6 +36,7 @@ export default function ActivityDetails() {
           />
         </View>
         <ActivityHeader />
+        <ActivityHistory />
       </View>
     </ScrollView>
   );
