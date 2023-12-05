@@ -1,6 +1,7 @@
 import { router } from "expo-router";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import OneButtonFooter from "./component/footer/oneButtonFooter";
 
 export default function ClientSurvey() {
   return (
@@ -208,12 +209,9 @@ export default function ClientSurvey() {
             source={require("../assets/moodCardGreat.png")}
           />
         </View>
-        <TouchableOpacity
-          onPress={() => router.push("./activityResults")}
-          style={styles.submitButton}
-        >
-          <Text style={styles.submitText}>Submit</Text>
-        </TouchableOpacity>
+        <View style={styles.submitButtonContainer}>
+          <OneButtonFooter buttonText="Submit" buttonTo="../activityResults" />
+        </View>
       </View>
     </ScrollView>
   );
@@ -310,22 +308,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginVertical: 14,
   },
-  submitButton: {
-    width: 343,
-    backgroundColor: "#3350E9",
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 8,
+  submitButtonContainer: {
     marginTop: 36,
     marginBottom: 32,
-  },
-  submitText: {
-    color: "#FFF",
-    fontFamily: "Jost-Medium",
-    fontSize: 16,
-    lineHeight: 24,
   },
   squares: {
     position: "absolute",

@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { View, Text, StyleSheet } from "react-native";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
 export default function ActivityModifications() {
@@ -14,7 +14,10 @@ export default function ActivityModifications() {
       <FlatList
         key={uuidv4()}
         data={modifications}
-        renderItem={({ item }) => <Text style={styles.itemText}>{item}</Text>}
+        renderItem={({ item }) => (
+          <Text style={styles.itemText}>{`\u2022 ${item}`}</Text>
+        )}
+        scrollEnabled={false}
       />
     </View>
   );

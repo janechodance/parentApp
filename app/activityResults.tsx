@@ -1,5 +1,9 @@
 import { View, Text, StyleSheet, Image } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import {
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 import { router } from "expo-router";
 import ActivityCard from "./component/activityCard";
 import "react-native-get-random-values";
@@ -8,7 +12,10 @@ import { v4 as uuidv4 } from "uuid";
 export default function ActivityResults() {
   const activities = [1, 2, 3, 4, 5];
   return (
-    <View style={styles.scrollView}>
+    <ScrollView
+      style={styles.scrollView}
+      contentContainerStyle={{ alignItems: "center" }}
+    >
       <View style={styles.container}>
         <View style={styles.firstScreen}>
           <TouchableOpacity onPress={() => router.push("./clientSurvey")}>
@@ -20,20 +27,20 @@ export default function ActivityResults() {
           data={activities}
           renderItem={({ item }) => <ActivityCard />}
           key={uuidv4()}
+          scrollEnabled={false}
         />
         <View style={styles.moreButton}>
           <Text style={styles.moreText}>View More</Text>
           <Image source={require("../assets/icons/caret.png")}></Image>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: "#FFFCFC",
-    alignItems: "center",
   },
   container: {
     flex: 1,
