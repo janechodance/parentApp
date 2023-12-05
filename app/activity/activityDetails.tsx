@@ -9,8 +9,18 @@ import {
 } from "react-native";
 import ActivityHeader from "./activityHeader";
 import ActivityHistory from "./activityHistory";
+import Accordion from "./accordion";
+import { useState } from "react";
+import ActivityMaterials from "./activityMaterials";
+import ActivityInstructions from "./activityInstructions";
+import ActivityModifications from "./activityModifications";
+import ActivityCredit from "./activityCredits";
+import TwoButtonFooter from "../component/footer/twoButtonFooter";
 
 export default function ActivityDetails() {
+  const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
+  const [isInstructionsOpen, setIsInstructionsOpen] = useState(false);
+  const [isModificationsOpen, setIsModificationsOpen] = useState(false);
   return (
     <ScrollView
       style={styles.scrollView}
@@ -37,6 +47,39 @@ export default function ActivityDetails() {
         </View>
         <ActivityHeader />
         <ActivityHistory />
+        <View style={{ ...styles.accordion, marginTop: 56 }}>
+          <Accordion
+            header="Materials"
+            isOpen={isMaterialsOpen}
+            setIsOpen={setIsMaterialsOpen}
+          />
+
+          {isMaterialsOpen ? <ActivityMaterials /> : null}
+        </View>
+        <View style={styles.accordion}>
+          <Accordion
+            header="Instructions"
+            isOpen={isInstructionsOpen}
+            setIsOpen={setIsInstructionsOpen}
+          />
+          {isInstructionsOpen ? <ActivityInstructions /> : null}
+        </View>
+        <View style={styles.accordion}>
+          <Accordion
+            header="Modifications"
+            isOpen={isModificationsOpen}
+            setIsOpen={setIsModificationsOpen}
+          />
+          {isModificationsOpen ? <ActivityModifications /> : null}
+        </View>
+        <ActivityCredit />
+        <View style={styles.footer}>
+          <TwoButtonFooter
+            height={48}
+            buttonLeftText="Track Progress"
+            buttonRightText="Start Activity"
+          />
+        </View>
       </View>
     </ScrollView>
   );
@@ -49,6 +92,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 342,
+    marginBottom: 50,
   },
   firstScreen: {
     marginTop: 32,
@@ -79,5 +123,11 @@ const styles = StyleSheet.create({
   paginationIcon: {
     alignSelf: "center",
     marginTop: 10,
+  },
+  accordion: {
+    marginTop: 32,
+  },
+  footer: {
+    marginTop: 56,
   },
 });

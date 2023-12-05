@@ -14,6 +14,7 @@ export default function Layout() {
         "Jost-Medium": require("../assets/fonts/Jost-Medium.ttf"),
         "Jost-Bold": require("../assets/fonts/Jost-Bold.ttf"),
         "Arimo-Regular": require("../assets/fonts/Arimo-Regular.ttf"),
+        "Arimo-Italic": require("../assets/fonts/Arimo-Italic.ttf"),
       });
 
       setFontLoaded(true);

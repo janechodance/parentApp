@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import TwoButtonFooter from "./footer/twoButtonFooter";
 
 export default function ActivityCard() {
   const skills = [
@@ -39,17 +40,12 @@ export default function ActivityCard() {
           ipsum tincidunt et accumsan.
         </Text>
       </View>
-      <View style={styles.footerContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>View Details</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{ ...styles.button, backgroundColor: "#3350E9" }}
-        >
-          <Text style={{ ...styles.buttonText, color: "#FFFFFF" }}>
-            Start Activity
-          </Text>
-        </TouchableOpacity>
+      <View>
+        <TwoButtonFooter
+          height={40}
+          buttonLeftText="View Details"
+          buttonRightText="Start Activity"
+        />
       </View>
     </View>
   );
@@ -107,24 +103,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginTop: 16,
-  },
-  footerContainer: {
-    flexDirection: "row",
-    padding: 16,
-    justifyContent: "space-around",
-  },
-  buttonText: {
-    fontFamily: "Jost-Medium",
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  button: {
-    height: 40,
-    borderColor: "#3350E9",
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 24,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
