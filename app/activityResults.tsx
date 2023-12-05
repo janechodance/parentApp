@@ -18,13 +18,7 @@ export default function ActivityResults() {
         </View>
         <FlatList
           data={activities}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => router.push("./activity/activityDetails")}
-            >
-              <ActivityCard />
-            </TouchableOpacity>
-          )}
+          renderItem={({ item }) => <ActivityCard />}
           key={uuidv4()}
         />
         <View style={styles.moreButton}>

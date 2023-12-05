@@ -1,22 +1,38 @@
+import { router } from "expo-router";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 interface twoButtonFooterProps {
   height: number;
+  width: number;
   buttonLeftText: string;
   buttonRightText: string;
+  buttonLeftTo: string;
+  buttonRightTo: string;
 }
 export default function TwoButtonFooter({
   height,
+  width,
   buttonLeftText,
   buttonRightText,
+  buttonLeftTo,
+  buttonRightTo,
 }: twoButtonFooterProps) {
   return (
     <View style={styles.footerContainer}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={{ ...styles.button, height: height, width: width }}
+        onPress={() => router.push(buttonLeftTo)}
+      >
         <Text style={styles.buttonText}>{buttonLeftText}</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={{ ...styles.button, backgroundColor: "#3350E9" }}
+        style={{
+          ...styles.button,
+          backgroundColor: "#3350E9",
+          height: height,
+          width: width,
+        }}
+        onPress={() => router.push(buttonRightTo)}
       >
         <Text style={{ ...styles.buttonText, color: "#FFFFFF" }}>
           {buttonRightText}
@@ -44,6 +60,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     alignItems: "center",
     justifyContent: "center",
-    margin: 16,
   },
 });

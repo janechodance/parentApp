@@ -40,11 +40,14 @@ export default function ActivityCard() {
           ipsum tincidunt et accumsan.
         </Text>
       </View>
-      <View>
+      <View style={styles.footer}>
         <TwoButtonFooter
           height={40}
+          width={140}
           buttonLeftText="View Details"
           buttonRightText="Start Activity"
+          buttonLeftTo="../../activity/activityDetails"
+          buttonRightTo="../../startActivity"
         />
       </View>
     </View>
@@ -103,5 +106,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginTop: 16,
+  },
+  footer: {
+    padding: 16,
   },
 });

@@ -76,8 +76,11 @@ export default function ActivityDetails() {
         <View style={styles.footer}>
           <TwoButtonFooter
             height={48}
+            width={164}
             buttonLeftText="Track Progress"
             buttonRightText="Start Activity"
+            buttonLeftTo="../../activity/activityDetails"
+            buttonRightTo="../../startActivity"
           />
         </View>
       </View>
