@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
+
 export default function ActivityModifications() {
   const modifications = [
     "Start the activity with 2 options (red and blue or big and small) but to make the activity more challenging, add additional categories or increase the amount and types of objects they are sorting",
@@ -25,12 +26,7 @@ export default function ActivityModifications() {
 const styles = StyleSheet.create({
   container: {
     marginTop: 56,
-    backgroundColor: "#ECEFFF",
     padding: 16,
-    shadowColor: "#E5E5E5",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 10,
   },
   itemText: {
     fontFamily: "Arimo-Regular",

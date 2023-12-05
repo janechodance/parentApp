@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function ActivityCredit() {
   return (

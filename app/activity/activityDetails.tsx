@@ -16,6 +16,7 @@ import ActivityInstructions from "./activityInstructions";
 import ActivityModifications from "./activityModifications";
 import ActivityCredit from "./activityCredits";
 import TwoButtonFooter from "../component/footer/twoButtonFooter";
+import HeaderWithNotes from "../component/header/headerWithNotes";
 
 export default function ActivityDetails() {
   const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
@@ -27,14 +28,7 @@ export default function ActivityDetails() {
       contentContainerStyle={{ alignItems: "center" }}
     >
       <View style={styles.container}>
-        <View style={styles.firstScreen}>
-          <TouchableOpacity onPress={() => router.push("../activityResults")}>
-            <Image source={require("../../assets/icons/arrowLeft.png")} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.notesButton}>
-            <Text style={styles.notesButtonText}>Notes</Text>
-          </TouchableOpacity>
-        </View>
+        <HeaderWithNotes />
         <View>
           <Image
             style={styles.activityImage}
@@ -96,26 +90,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 342,
     marginBottom: 50,
-  },
-  firstScreen: {
-    marginTop: 32,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  notesButton: {
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
-    marginLeft: 242,
-    borderWidth: 1,
-    borderRadius: 8,
-    borderColor: "#3350E9",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  notesButtonText: {
-    fontFamily: "Jost-Medium",
-    fontSize: 16,
-    lineHeight: 24,
   },
   activityImage: {
     height: 213,

@@ -30,7 +30,7 @@ export default function ClientSurvey() {
           <Text style={styles.questionText}>How much time do you have?</Text>
           <TouchableOpacity style={styles.optionsContainer}>
             <Image source={require("../assets/icons/radioButton.png")} />
-            <Text style={styles.optionsText}>Less then 15 minutes</Text>
+            <Text style={styles.optionsText}>Less than 15 minutes</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionsContainer}>
             <Image source={require("../assets/icons/radioButton.png")} />
