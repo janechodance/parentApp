@@ -5,6 +5,7 @@ import OneButtonFooter from "./component/footer/oneButtonFooter";
 import ActivityMaterials from "./activity/activityMaterials";
 import { ScrollView } from "react-native-gesture-handler";
 import ActivityInstructions from "./activity/activityInstructions";
+import ActivityImages from "./activity/activiyImages";
 
 export default function StartActivity() {
   const [tabSelected, setTabSelected] = useState("materials");
@@ -15,7 +16,7 @@ export default function StartActivity() {
       case "instructions":
         return <ActivityInstructions />;
       default:
-        return <ActivityMaterials />;
+        return <ActivityImages />;
     }
   };
   return (
@@ -27,7 +28,12 @@ export default function StartActivity() {
         <HeaderWithNotes />
         <Text style={styles.headerText}>Color Sorting</Text>
         <View style={styles.tabContainer}>
-          <TouchableOpacity onPress={() => setTabSelected("materials")}>
+          <TouchableOpacity
+            style={
+              tabSelected === "materials" ? styles.tabButtonSelected : null
+            }
+            onPress={() => setTabSelected("materials")}
+          >
             <Text
               style={
                 tabSelected === "materials"
@@ -38,7 +44,12 @@ export default function StartActivity() {
               Materials
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setTabSelected("instructions")}>
+          <TouchableOpacity
+            style={
+              tabSelected === "instructions" ? styles.tabButtonSelected : null
+            }
+            onPress={() => setTabSelected("instructions")}
+          >
             <Text
               style={
                 tabSelected === "instructions"
@@ -49,7 +60,10 @@ export default function StartActivity() {
               Instructions
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setTabSelected("images")}>
+          <TouchableOpacity
+            style={tabSelected === "images" ? styles.tabButtonSelected : null}
+            onPress={() => setTabSelected("images")}
+          >
             <Text
               style={
                 tabSelected === "images"
@@ -93,7 +107,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  tabButton: {},
+  tabButtonSelected: {
+    borderBottomWidth: 2,
+    borderBottomColor: "#122AA5",
+  },
   tabText: {
     fontFamily: "Jost-Medium",
     fontSize: 20,
@@ -105,14 +122,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 30,
     color: "#122AA5",
-    // borderColor: "#122AA5",
-    // borderWidth: 2,
   },
   contentContainer: {
     marginTop: 70,
   },
   footer: {
-    marginTop: 56,
-    marginBottom: 32,
+    marginTop: 36,
+    marginBottom: 70,
   },
 });
