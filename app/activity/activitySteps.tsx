@@ -1,9 +1,13 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function ActivitySteps(step: any) {
+interface stepsProps {
+  number: number;
+  step: string;
+}
+export default function ActivitySteps({ step, number }: stepsProps) {
   return (
     <View>
-      <Text style={styles.header}>Step 1</Text>
+      <Text style={styles.header}>Step {number}</Text>
       <Text style={styles.text}>{step}</Text>
     </View>
   );
