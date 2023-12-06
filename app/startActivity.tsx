@@ -80,7 +80,10 @@ export default function StartActivity() {
         </View>
 
         <View style={styles.footer}>
-          <OneButtonFooter buttonText="Track Progress" buttonTo="/" />
+          <OneButtonFooter
+            buttonText="Track Progress"
+            buttonTo="../feedbackSurvey"
+          />
         </View>
       </View>
     </ScrollView>
