@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-import ThumbUpDown from "./thumbUpDown";
+
 interface surveyQuestionProps {
   question: string;
   answer: React.ReactNode;

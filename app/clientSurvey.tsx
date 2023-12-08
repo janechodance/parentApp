@@ -1,4 +1,3 @@
-import { router } from "expo-router";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
@@ -320,12 +319,12 @@ const styles = StyleSheet.create({
   circle: {
     position: "absolute",
     left: -46,
-    transform: "rotate(-39.212deg)",
+    // transform: "rotate(-39.212deg)",
   },
   squiggleRight: {
     position: "absolute",
     top: -50,
     right: -10,
-    transform: "rotate(-13.807deg)",
+    // transform: "rotate(-13.807deg)",
   },
 });
