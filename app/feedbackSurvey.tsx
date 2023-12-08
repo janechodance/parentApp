@@ -6,6 +6,7 @@ import StarsAnswer from "./component/survey/starsAnswer";
 import MoodCardAnswer from "./component/survey/moodCardAnswer";
 import RadioButtonCollection from "./component/survey/radioButtonCollection";
 import TextAnswer from "./component/survey/textAnswer";
+import ImageUpload from "./component/survey/imageUpload";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -135,11 +136,28 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <SurveyQuestion
             question="Have any personal photos or videos from this activity? Upload them here!"
-            answer={<TextAnswer />}
+            answer={<ImageUpload />}
           />
         </View>
         <View style={styles.questionContainer}>
           <OneButtonFooter buttonText="Submit Feedback" buttonTo="/" />
+        </View>
+        <View style={styles.reminderContainer}>
+          <Image source={require("../assets/icons/notification.png")} />
+          <Text
+            style={{
+              ...styles.descriptionHeaderText,
+              color: "#3350E9",
+              marginLeft: 12,
+              marginRight: 16,
+            }}
+          >
+            Set Reminder?
+          </Text>
+          <Image
+            style={{ marginLeft: 68 }}
+            source={require("../assets/icons/plusCircle.png")}
+          />
         </View>
       </View>
     </ScrollView>
@@ -182,5 +200,17 @@ const styles = StyleSheet.create({
   },
   questionContainer: {
     marginTop: 64,
+  },
+  reminderContainer: {
+    borderBottomColor: "#B0B0B0",
+    borderBottomWidth: 1,
+    borderTopColor: "#B0B0B0",
+    borderTopWidth: 1,
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 64,
+    marginBottom: 64,
   },
 });
