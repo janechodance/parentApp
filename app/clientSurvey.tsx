@@ -1,8 +1,37 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
+import HomeButton from "../assets/icons/home.svg";
+import OutsideButton from "../assets/icons/tree.svg";
+import CarButton from "../assets/icons/car.svg";
+import StoreButton from "../assets/icons/store.svg";
+import RadioButtonCollection from "./component/survey/radioButtonCollection";
+import MoodCardGood from "../assets/moodCardGood.svg";
+import MoodCardGreat from "../assets/moodCardGreat.svg";
+import ClientSurveyImage from "../assets/background/clientSurveyImage.svg";
 
 export default function ClientSurvey() {
+  const timeOptions = [
+    "Less than 15 minutes",
+    "15 to 30 minutes",
+    "30 to 60 minutes",
+    "60+ minutes",
+    "I'm flexible!",
+  ];
+  const personOptions = [
+    "Sam, partner, adult",
+    "Lee, child, 12yrs",
+    "Devon, child, 6yrs",
+    "Tina, caregiver, adult",
+  ];
+
+  const equipmentOptions = [
+    "Wheelchair",
+    "Walker",
+    "Stander",
+    "Not applicable",
+  ];
+
   return (
     <ScrollView
       style={styles.scrollView}
@@ -11,10 +40,9 @@ export default function ClientSurvey() {
       <View style={styles.container}>
         <View style={styles.firstScreen}>
           <Text style={styles.headerText}>Personalized for YOU!</Text>
-          <Image
-            style={styles.screenImage}
-            source={require("../assets/background/clientSurveyImage.png")}
-          />
+          <View style={styles.screenImage}>
+            <ClientSurveyImage />
+          </View>
           <Text style={styles.contentText}>
             We are here to help! Please enter as much or as little information
             you want. This will help us recommend activities tailored to your
@@ -27,52 +55,33 @@ export default function ClientSurvey() {
             source={require("../assets/background/squiggle.png")}
           />
           <Text style={styles.questionText}>How much time do you have?</Text>
-          <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/icons/radioButton.png")} />
-            <Text style={styles.optionsText}>Less than 15 minutes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/icons/radioButton.png")} />
-            <Text style={styles.optionsText}>15 to 30 minutes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/icons/radioButton.png")} />
-            <Text style={styles.optionsText}>30 to 60 minutes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/icons/radioButton.png")} />
-            <Text style={styles.optionsText}>60+ minutes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.optionsContainer}>
-            <Image source={require("../assets/icons/radioButton.png")} />
-            <Text style={styles.optionsText}>I'm flexible!</Text>
-          </TouchableOpacity>
+          <RadioButtonCollection options={timeOptions} style="circle" />
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>Where are you?</Text>
           <View style={styles.locationContainer}>
             <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/homeLocationButton.png")}
-              />
+              <View style={styles.locationButtonContainer}>
+                <HomeButton />
+              </View>
               <Text style={styles.locationOptionsText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/outsideLocationButton.png")}
-              />
+              <View style={styles.locationButtonContainer}>
+                <OutsideButton />
+              </View>
               <Text style={styles.locationOptionsText}>Outside</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/carLocationButton.png")}
-              />
+              <View style={styles.locationButtonContainer}>
+                <CarButton />
+              </View>
               <Text style={styles.locationOptionsText}>Car</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/storeLocationButton.png")}
-              />
+              <View style={styles.locationButtonContainer}>
+                <StoreButton />
+              </View>
               <Text style={styles.locationOptionsText}>Store</Text>
             </TouchableOpacity>
           </View>
@@ -120,38 +129,7 @@ export default function ClientSurvey() {
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>Is anyone with you today?</Text>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 24 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Sam, partner, adult
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 30 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Lee, child, 12yrs
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 30 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Devon, child, 6yrs
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 30 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Tina, caregiver, adult
-            </Text>
-          </TouchableOpacity>
+          <RadioButtonCollection options={personOptions} style="square" />
         </View>
         <View style={styles.screen}>
           <Image
@@ -161,52 +139,19 @@ export default function ClientSurvey() {
           <Text style={styles.questionText}>
             What equipment do you have today?
           </Text>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 24 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Wheelchair
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 30 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Walker
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 30 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Stander
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ ...styles.optionsContainer, marginTop: 30 }}
-          >
-            <Image source={require("../assets/icons/squareRadioButton.png")} />
-            <Text style={{ paddingLeft: 2, ...styles.optionsText }}>
-              Not applicable
-            </Text>
-          </TouchableOpacity>
+          <RadioButtonCollection options={equipmentOptions} style="square" />
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>How is your child feeling?</Text>
-          <Image
-            style={styles.screenImage}
-            source={require("../assets/moodCardGood.png")}
-          />
+          <View style={styles.screenImage}>
+            <MoodCardGood />
+          </View>
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>How are you feeling?</Text>
-          <Image
-            style={styles.screenImage}
-            source={require("../assets/moodCardGreat.png")}
-          />
+          <View style={styles.screenImage}>
+            <MoodCardGreat />
+          </View>
         </View>
         <View style={styles.submitButtonContainer}>
           <OneButtonFooter buttonText="Submit" buttonTo="../activityResults" />
@@ -274,6 +219,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     alignSelf: "center",
+  },
+  locationButtonContainer: {
+    borderColor: "#6F86FF",
+    borderWidth: 1,
+    borderRadius: 4,
+    padding: 20,
+    height: 72,
+    width: 72,
   },
   moreButton: {
     flexDirection: "row",

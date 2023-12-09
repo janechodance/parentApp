@@ -1,16 +1,17 @@
-import { Image, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   Menu,
   MenuOption,
   MenuOptions,
   MenuTrigger,
 } from "react-native-popup-menu";
+import Hamburger from "../../assets/icons/hamburger.svg";
 
 export default function HamburgerMenu() {
   return (
     <Menu>
       <MenuTrigger>
-        <Image source={require("../../assets/icons/hamburger.png")}></Image>
+        <Hamburger />
       </MenuTrigger>
       <MenuOptions
         optionsContainerStyle={styles.optionContainer}
