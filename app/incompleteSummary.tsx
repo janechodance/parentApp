@@ -8,7 +8,7 @@ import ImageDisplay from "./component/summary/imageDisplay";
 import ProgressDisplay from "./component/summary/progressDisplay";
 import Exit from "../assets/icons/exit.svg";
 
-export default function CompleteSummary() {
+export default function IncompleteSummary() {
   return (
     <ScrollView
       style={styles.background}
@@ -20,24 +20,20 @@ export default function CompleteSummary() {
           <View style={styles.exit}>
             <Exit />
           </View>
-          <Text style={styles.headerText}>Awesome Job!</Text>
+          <Text style={styles.headerText}>Keep Learning and Growing!</Text>
           <Text style={styles.headerContentText}>
             Thank you for tracking your progress! This information helps us make
             better recommendations for you and your family.
           </Text>
         </View>
         <View style={styles.sectionContainer}>
-          <ConfettiBottom style={{ position: "absolute" }} />
-          <ActivityHighlight complete />
+          <ActivityHighlight complete={false} />
         </View>
         <View style={styles.sectionContainer}>
-          <NoteDisplay note="Next time remember to use a Tupperware bin to help signify where each different color group is..." />
+          <NoteDisplay note="Had a difficult time keeping Charlie focused on the activity. Next time try to have a sibling join..." />
         </View>
         <View style={styles.sectionContainer}>
-          <ImageDisplay />
-        </View>
-        <View style={styles.sectionContainer}>
-          <ProgressDisplay complete />
+          <ProgressDisplay complete={false} />
         </View>
         <View style={styles.footer}>
           <OneButtonFooter buttonText="View Progress Log" buttonTo="/" />

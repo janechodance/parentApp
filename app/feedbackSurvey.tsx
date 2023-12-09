@@ -142,7 +142,7 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <OneButtonFooter
             buttonText="Submit Feedback"
-            buttonTo="/completeSummary"
+            buttonTo="../incompleteSummary"
           />
         </View>
         <View style={styles.reminderContainer}>

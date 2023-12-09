@@ -1,11 +1,10 @@
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet } from "react-native";
+import MoodCardGood from "../../../assets/moodCardGood.svg";
+
 export default function MoodCardAnswer() {
   return (
-    <View>
-      <Image
-        style={styles.screenImage}
-        source={require("../../../assets/moodCardGood.png")}
-      />
+    <View style={styles.screenImage}>
+      <MoodCardGood />
     </View>
   );
 }
