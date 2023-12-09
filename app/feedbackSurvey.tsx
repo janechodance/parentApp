@@ -140,7 +140,10 @@ export default function FeedbackSurvey() {
           />
         </View>
         <View style={styles.questionContainer}>
-          <OneButtonFooter buttonText="Submit Feedback" buttonTo="/" />
+          <OneButtonFooter
+            buttonText="Submit Feedback"
+            buttonTo="/completeSummary"
+          />
         </View>
         <View style={styles.reminderContainer}>
           <Image source={require("../assets/icons/notification.png")} />
