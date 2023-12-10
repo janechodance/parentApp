@@ -17,8 +17,8 @@ export default function Accordion({
         <Image
           source={
             isOpen
-              ? require("../../assets/icons/caretUp.png")
-              : require("../../assets/icons/caret.png")
+              ? require("../../../assets/icons/caretUp.png")
+              : require("../../../assets/icons/caret.png")
           }
         />
       </TouchableOpacity>

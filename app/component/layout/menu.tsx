@@ -5,7 +5,7 @@ import {
   MenuOptions,
   MenuTrigger,
 } from "react-native-popup-menu";
-import Hamburger from "../../assets/icons/hamburger.svg";
+import Hamburger from "../../../assets/icons/hamburger.svg";
 import { router } from "expo-router";
 
 export default function HamburgerMenu() {

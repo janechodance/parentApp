@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
 } from "react-native-gesture-handler";
 import { router } from "expo-router";
-import ActivityCard from "./component/activityCard";
+import ActivityCard from "./component/activityCard/activityCard";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
 

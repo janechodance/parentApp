@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import * as Font from "expo-font";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { router } from "expo-router";
-import HamburgerMenu from "./component/menu";
+import HamburgerMenu from "./component/layout/menu";
 import { MenuProvider } from "react-native-popup-menu";
-import BottomNavigation from "./component/bottomNavigation";
+import BottomNavigation from "./component/layout/bottomNavigation";
 
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);

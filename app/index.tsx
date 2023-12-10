@@ -1,9 +1,16 @@
 import { router } from "expo-router";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import WeekReview from "./component/homePage/weekReview";
+import { ScrollView } from "react-native-gesture-handler";
+import ActivityCarousel from "./component/homePage/activityCarousel";
+import EnergyLevel from "./component/homePage/energyLevel";
 
 export default function App() {
   return (
-    <>
+    <ScrollView
+      style={styles.scrollView}
+      contentContainerStyle={{ alignItems: "center" }}
+    >
       <View style={styles.container}>
         <Image
           style={styles.welcomeScreenBackground}
@@ -26,22 +33,41 @@ export default function App() {
             <Text style={styles.welcomeButtonText}>My Activity Finder</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.sectionContainer}>
+          <WeekReview />
+        </View>
+        <View style={styles.sectionContainer}>
+          <ActivityCarousel header="Recent Activities" />
+        </View>
+        <View style={styles.sectionContainer}>
+          <EnergyLevel />
+        </View>
+        <View style={styles.sectionContainer}>
+          <ActivityCarousel header="Popular Activities" />
+        </View>
+        <View style={styles.sectionContainer}>
+          <ActivityCarousel header="Try Again!" />
+        </View>
+        <View style={styles.sectionContainer}>
+          <ActivityCarousel header="Fun in the Sun" />
+        </View>
       </View>
-    </>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+    backgroundColor: "#FFFCFC",
+  },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+    width: 343,
   },
-  welcomeScreenBackground: { position: "absolute", top: 50 },
+  welcomeScreenBackground: { position: "absolute", top: 50, left: "25%" },
   welcomeScreen: {
-    margin: 24,
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop: 24,
   },
   welcomeButton: {
     backgroundColor: "#3350E9",
@@ -58,9 +84,9 @@ const styles = StyleSheet.create({
   },
   welcomeImage: {
     margin: 20,
+    alignSelf: "center",
   },
   welcomeText: {
-    marginLeft: 20,
     fontFamily: "Jost-Medium",
     fontSize: 28,
     alignSelf: "flex-start",
@@ -71,5 +97,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     height: 48,
     width: 342,
+  },
+  sectionContainer: {
+    marginTop: 72,
   },
 });

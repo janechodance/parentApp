@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import TwoButtonFooter from "./footer/twoButtonFooter";
+import TwoButtonFooter from "../footer/twoButtonFooter";
 
 export default function ActivityCard() {
   const skills = [
@@ -14,11 +14,11 @@ export default function ActivityCard() {
       <View style={styles.background}>
         <Image
           style={styles.activityImage}
-          source={require("../../assets/background/activityImage1.png")}
+          source={require("../../../assets/background/activityImage1.png")}
         />
         <Image
           style={styles.dottedCircle}
-          source={require("../../assets/background/dottedCircle.png")}
+          source={require("../../../assets/background/dottedCircle.png")}
         />
       </View>
       <View style={styles.detailContainer}>
@@ -46,8 +46,8 @@ export default function ActivityCard() {
           width={140}
           buttonLeftText="View Details"
           buttonRightText="Start Activity"
-          buttonLeftTo="../../activity/activityDetails"
-          buttonRightTo="../../startActivity"
+          buttonLeftTo="/activityDetails"
+          buttonRightTo="/startActivity"
         />
       </View>
     </View>

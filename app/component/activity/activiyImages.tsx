@@ -6,17 +6,17 @@ export default function ActivityImages() {
       <Text style={styles.headerText}>Videos:</Text>
       <Image
         style={styles.videoContainer}
-        source={require("../../assets/activities/colorSorting.png")}
+        source={require("../../../assets/activities/colorSorting.png")}
       />
       <Text style={styles.captionText}>Video example of Color Sorting</Text>
       <Text style={styles.headerText}>Modifications:</Text>
       <Image
         style={styles.videoContainer}
-        source={require("../../assets/activities/colorSortingModifications.png")}
+        source={require("../../../assets/activities/colorSortingModifications.png")}
       />
       <Image
         style={styles.pagination}
-        source={require("../../assets/icons/pagination.png")}
+        source={require("../../../assets/icons/pagination.png")}
       />
       <Text style={styles.captionText}>
         Alternative set-ups, modifications, and item examples
@@ -24,11 +24,11 @@ export default function ActivityImages() {
       <Text style={styles.headerText}>Personal Images:</Text>
       <Image
         style={styles.videoContainer}
-        source={require("../../assets/activities/colorSortingPersonal.png")}
+        source={require("../../../assets/activities/colorSortingPersonal.png")}
       />
       <Image
         style={styles.pagination}
-        source={require("../../assets/icons/pagination.png")}
+        source={require("../../../assets/icons/pagination.png")}
       />
       <Text style={styles.captionText}>Uploaded images and videos</Text>
     </View>

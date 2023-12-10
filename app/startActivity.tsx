@@ -1,11 +1,11 @@
-import { TouchableOpacity, Image, Text, StyleSheet, View } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import HeaderWithNotes from "./component/header/headerWithNotes";
 import { useState } from "react";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
-import ActivityMaterials from "./activity/activityMaterials";
+import ActivityMaterials from "./component/activity/activityMaterials";
 import { ScrollView } from "react-native-gesture-handler";
-import ActivityInstructions from "./activity/activityInstructions";
-import ActivityImages from "./activity/activiyImages";
+import ActivityInstructions from "./component/activity/activityInstructions";
+import ActivityImages from "./component/activity/activiyImages";
 
 export default function StartActivity() {
   const [tabSelected, setTabSelected] = useState("materials");

@@ -14,7 +14,7 @@ export default function ActivityHeader() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.name}>Color Sorting</Text>
-        <Image source={require("../../assets/icons/star.png")} />
+        <Image source={require("../../../assets/icons/star.png")} />
       </View>
       <View style={styles.details}>
         <View style={styles.timeContainer}>
@@ -55,7 +55,7 @@ export default function ActivityHeader() {
       </View>
       <TouchableOpacity style={styles.moreButton}>
         <Text style={styles.moreText}>View More Tags</Text>
-        <Image source={require("../../assets/icons/caretRight.png")} />
+        <Image source={require("../../../assets/icons/caretRight.png")} />
       </TouchableOpacity>
     </View>
   );

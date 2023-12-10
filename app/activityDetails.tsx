@@ -1,22 +1,15 @@
 import { router } from "expo-router";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-import ActivityHeader from "./activityHeader";
-import ActivityHistory from "./activityHistory";
-import Accordion from "./accordion";
+import { View, StyleSheet, Image, ScrollView } from "react-native";
+import ActivityHeader from "./component/activity/activityHeader";
+import ActivityHistory from "./component/activity/activityHistory";
+import Accordion from "./component/activity/accordion";
 import { useState } from "react";
-import ActivityMaterials from "./activityMaterials";
-import ActivityInstructions from "./activityInstructions";
-import ActivityModifications from "./activityModifications";
-import ActivityCredit from "./activityCredits";
-import TwoButtonFooter from "../component/footer/twoButtonFooter";
-import HeaderWithNotes from "../component/header/headerWithNotes";
+import ActivityMaterials from "./component/activity/activityMaterials";
+import ActivityInstructions from "./component/activity/activityInstructions";
+import ActivityModifications from "./component/activity/activityModifications";
+import ActivityCredit from "./component/activity/activityCredits";
+import TwoButtonFooter from "./component/footer/twoButtonFooter";
+import HeaderWithNotes from "./component/header/headerWithNotes";
 
 export default function ActivityDetails() {
   const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
@@ -32,11 +25,11 @@ export default function ActivityDetails() {
         <View>
           <Image
             style={styles.activityImage}
-            source={require("../../assets/activities/colorSortingActivity.png")}
+            source={require("../assets/activities/colorSortingActivity.png")}
           />
           <Image
             style={styles.paginationIcon}
-            source={require("../../assets/icons/pagination.png")}
+            source={require("../assets/icons/pagination.png")}
           />
         </View>
         <ActivityHeader />
@@ -73,8 +66,8 @@ export default function ActivityDetails() {
             width={164}
             buttonLeftText="Track Progress"
             buttonRightText="Start Activity"
-            buttonLeftTo="../../activity/activityDetails"
-            buttonRightTo="../../startActivity"
+            buttonLeftTo="/activityDetails"
+            buttonRightTo="/startActivity"
           />
         </View>
       </View>

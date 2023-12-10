@@ -1,9 +1,9 @@
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import HomeButton from "../../assets/icons/homeSolidSmall.svg";
-import Explore from "../../assets/icons/binoculars.svg";
-import Progress from "../../assets/icons/progress.svg";
-import Calendar from "../../assets/icons/calendar.svg";
-import Reminder from "../../assets/icons/notification.svg";
+import HomeButton from "../../../assets/icons/homeSolidSmall.svg";
+import Explore from "../../../assets/icons/binoculars.svg";
+import Progress from "../../../assets/icons/progress.svg";
+import Calendar from "../../../assets/icons/calendar.svg";
+import Reminder from "../../../assets/icons/notification.svg";
 import { router } from "expo-router";
 
 export default function BottomNavigation() {
