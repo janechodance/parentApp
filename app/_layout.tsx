@@ -6,6 +6,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { router } from "expo-router";
 import HamburgerMenu from "./component/menu";
 import { MenuProvider } from "react-native-popup-menu";
+import BottomNavigation from "./component/bottomNavigation";
 
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -49,6 +50,7 @@ export default function Layout() {
           ),
         }}
       />
+      <BottomNavigation />
     </MenuProvider>
   );
 }
@@ -59,5 +61,25 @@ const styles = StyleSheet.create({
     lineHeight: 42,
     fontWeight: "500",
     fontFamily: "Jost-Medium",
+  },
+  footer: {
+    height: 65,
+    backgroundColor: "#A920C9",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+  footerButton: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  footerText: {
+    fontFamily: "Arimo-Regular",
+    fontSize: 14,
+    lineHeight: 24,
+    color: "#FFFFFF",
   },
 });

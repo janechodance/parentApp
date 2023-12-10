@@ -7,6 +7,7 @@ import MoodCardAnswer from "./component/survey/moodCardAnswer";
 import RadioButtonCollection from "./component/survey/radioButtonCollection";
 import TextAnswer from "./component/survey/textAnswer";
 import ImageUpload from "./component/survey/imageUpload";
+import NotificationBlack from "../assets/icons/notificationBlack.svg";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -146,7 +147,7 @@ export default function FeedbackSurvey() {
           />
         </View>
         <View style={styles.reminderContainer}>
-          <Image source={require("../assets/icons/notification.png")} />
+          <NotificationBlack />
           <Text
             style={{
               ...styles.descriptionHeaderText,

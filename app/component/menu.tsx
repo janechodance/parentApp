@@ -6,6 +6,7 @@ import {
   MenuTrigger,
 } from "react-native-popup-menu";
 import Hamburger from "../../assets/icons/hamburger.svg";
+import { router } from "expo-router";
 
 export default function HamburgerMenu() {
   return (
@@ -18,15 +19,18 @@ export default function HamburgerMenu() {
         customStyles={{ optionText: styles.optionText }}
       >
         <MenuOption
-          onSelect={() => console.log("1")}
+          onSelect={() => router.push("/")}
           text="My Activity Finder"
         />
-        <MenuOption onSelect={() => console.log("2")} text="Explore" />
-        <MenuOption onSelect={() => console.log("2")} text="Progress Log" />
-        <MenuOption onSelect={() => console.log("2")} text="Calendar" />
-        <MenuOption onSelect={() => console.log("2")} text="Reminders" />
-        <MenuOption onSelect={() => console.log("2")} text="Profile" />
-        <MenuOption onSelect={() => console.log("2")} text="Settings" />
+        <MenuOption onSelect={() => router.push("/explore")} text="Explore" />
+        <MenuOption
+          onSelect={() => router.push("/progressLog")}
+          text="Progress Log"
+        />
+        <MenuOption onSelect={() => router.push("/calendar")} text="Calendar" />
+        <MenuOption onSelect={() => router.push("/alerts")} text="Reminders" />
+        <MenuOption onSelect={() => router.push("/profile")} text="Profile" />
+        <MenuOption onSelect={() => router.push("/settings")} text="Settings" />
       </MenuOptions>
     </Menu>
   );

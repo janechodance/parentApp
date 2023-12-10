@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { Tabs } from "expo-router/tabs";
+
 export default function App() {
   return (
     <>
@@ -26,13 +26,6 @@ export default function App() {
             <Text style={styles.welcomeButtonText}>My Activity Finder</Text>
           </TouchableOpacity>
         </View>
-        <Tabs>
-          <Tabs.Screen name="index" options={{ href: "/" }} />
-          <Tabs.Screen
-            name="clientSurvey"
-            options={{ href: "/clientSurvey" }}
-          />
-        </Tabs>
       </View>
     </>
   );
