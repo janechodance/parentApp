@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import CircleRadio from "../../../assets/icons/circleRadioButton.svg";
 
 interface circleRadioProps {
   option: string;
@@ -7,7 +8,7 @@ export default function CircleRadioButton({ option }: circleRadioProps) {
   return (
     <View>
       <TouchableOpacity style={styles.container}>
-        <Image source={require("../../../assets/icons/radioButton.png")} />
+        <CircleRadio />
         <Text style={styles.optionText}>{option}</Text>
       </TouchableOpacity>
     </View>
@@ -22,6 +23,6 @@ const styles = StyleSheet.create({
     fontFamily: "Arimo-Regular",
     fontSize: 16,
     lineHeight: 24,
-    marginLeft: 8,
+    marginLeft: 12,
   },
 });

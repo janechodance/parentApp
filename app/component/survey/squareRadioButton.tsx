@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import SquareRadio from "../../../assets/icons/squareRadioButton.svg";
 
 interface squareRadioProps {
   option: string;
@@ -7,9 +8,7 @@ export default function SquareRadioButton({ option }: squareRadioProps) {
   return (
     <View>
       <TouchableOpacity style={styles.container}>
-        <Image
-          source={require("../../../assets/icons/squareRadioButton.png")}
-        />
+        <SquareRadio />
         <Text style={styles.optionText}>{option}</Text>
       </TouchableOpacity>
     </View>
