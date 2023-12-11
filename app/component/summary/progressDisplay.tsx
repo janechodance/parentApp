@@ -12,7 +12,6 @@ export default function ProgressDisplay({ complete }: progressDisplayProps) {
       <Text style={styles.headerText}>My Progress</Text>
       {complete ? (
         <>
-          {" "}
           <View style={styles.progressContainer}>
             <View style={styles.icons}>
               <Line />

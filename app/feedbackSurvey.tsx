@@ -9,6 +9,7 @@ import TextAnswer from "./component/survey/textAnswer";
 import ImageUpload from "./component/survey/imageUpload";
 import NotificationBlack from "../assets/icons/notificationBlack.svg";
 import ScaleAnswer from "./component/survey/scaleAnswer";
+import { useState } from "react";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -33,6 +34,8 @@ export default function FeedbackSurvey() {
     "AAC device",
     "Other",
   ];
+  const [again, setAgain] = useState("");
+  const [complete, setComplete] = useState("");
   return (
     <ScrollView
       style={styles.background}
@@ -72,7 +75,7 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <SurveyQuestion
             question="Would you do this activity again?"
-            answer={<ThumbUpDown />}
+            answer={<ThumbUpDown value={again} setValue={setAgain} />}
           />
         </View>
         <View style={styles.questionContainer}>
@@ -84,7 +87,7 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <SurveyQuestion
             question="Did you complete this activity?"
-            answer={<ThumbUpDown />}
+            answer={<ThumbUpDown value={complete} setValue={setComplete} />}
           />
         </View>
         <View style={styles.questionContainer}>
@@ -144,7 +147,9 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <OneButtonFooter
             buttonText="Submit Feedback"
-            buttonTo="../incompleteSummary"
+            buttonTo={
+              complete === "yes" ? "./completeSummary" : "./incompleteSummary"
+            }
           />
         </View>
         <View style={styles.reminderContainer}>
