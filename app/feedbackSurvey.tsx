@@ -8,6 +8,7 @@ import RadioButtonCollection from "./component/survey/radioButtonCollection";
 import TextAnswer from "./component/survey/textAnswer";
 import ImageUpload from "./component/survey/imageUpload";
 import NotificationBlack from "../assets/icons/notificationBlack.svg";
+import ScaleAnswer from "./component/survey/scaleAnswer";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -95,7 +96,7 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <SurveyQuestion
             question="How easy was it for your child to complete this activity?"
-            answer={<ThumbUpDown />}
+            answer={<ScaleAnswer />}
           />
         </View>
         <View style={styles.questionContainer}>

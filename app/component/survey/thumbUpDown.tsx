@@ -1,14 +1,16 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import ThumbUp from "../../../assets/icons/thumbUp.svg";
+import ThumbDown from "../../../assets/icons/thumbDown.svg";
 
 export default function ThumbUpDown() {
   return (
     <View style={styles.answerContainer}>
       <View style={styles.optionsConatiner}>
-        <Image source={require("../../../assets/icons/thumbsUp.png")} />
+        <ThumbUp />
         <Text style={styles.text}>Yes</Text>
       </View>
       <View style={styles.optionsConatiner}>
-        <Image source={require("../../../assets/icons/thumbsDown.png")} />
+        <ThumbDown />
         <Text style={styles.text}>No</Text>
       </View>
     </View>
@@ -19,11 +21,12 @@ const styles = StyleSheet.create({
     fontFamily: "Jost-Medium",
     fontSize: 20,
     lineHeight: 30,
+    marginTop: 16,
   },
   answerContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 16,
+    marginTop: 24,
   },
   optionsConatiner: {
     alignItems: "center",
