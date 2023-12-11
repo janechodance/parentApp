@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+import SolidStar from "../../../assets/icons/solidStar.svg";
 
 export default function ActivityHeader() {
   const skills = ["Cognitive Skills", "Fine Motor Skills", "Life Skills"];
@@ -14,7 +15,7 @@ export default function ActivityHeader() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.name}>Color Sorting</Text>
-        <Image source={require("../../../assets/icons/star.png")} />
+        <SolidStar />
       </View>
       <View style={styles.details}>
         <View style={styles.timeContainer}>

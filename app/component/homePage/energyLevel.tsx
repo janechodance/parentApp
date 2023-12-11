@@ -8,7 +8,12 @@ export default function EnergyLevel() {
   return (
     <View>
       <Image
-        style={{ alignSelf: "center" }}
+        style={{
+          alignSelf: "center",
+          width: 342,
+          height: 264,
+          resizeMode: "contain",
+        }}
         source={require("../../../assets/background/plant.png")}
       />
       <Text style={styles.headerText}>How is your energy level today?</Text>
