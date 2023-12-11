@@ -4,6 +4,14 @@ import WeekReview from "./component/homePage/weekReview";
 import { ScrollView } from "react-native-gesture-handler";
 import ActivityCarousel from "./component/homePage/activityCarousel";
 import EnergyLevel from "./component/homePage/energyLevel";
+import Catergories from "./component/homePage/categories";
+import Quote from "./component/homePage/quote";
+import Paint from "../assets/background/paint.svg";
+import Diamonds from "../assets/background/diamonds.svg";
+import Halfsun from "../assets/background/halfsun.svg";
+import Vector from "../assets/background/Vector.svg";
+import Triangles from "../assets/background/triangles.svg";
+import Circles from "../assets/background/circles.svg";
 
 export default function App() {
   return (
@@ -12,10 +20,16 @@ export default function App() {
       contentContainerStyle={{ alignItems: "center" }}
     >
       <View style={styles.container}>
-        <Image
-          style={styles.welcomeScreenBackground}
-          source={require("../assets/background/circles.png")}
-        ></Image>
+        <View
+          style={{
+            position: "absolute",
+            top: 50,
+            left: 90,
+            zIndex: -1,
+          }}
+        >
+          <Circles />
+        </View>
         <View style={styles.welcomeScreen}>
           <Text style={styles.welcomeText}>Welcome Back, Max!</Text>
           <Image
@@ -36,17 +50,73 @@ export default function App() {
         <View style={styles.sectionContainer}>
           <WeekReview />
         </View>
+        <View
+          style={{
+            position: "absolute",
+            top: 550,
+            left: -22,
+            zIndex: -1,
+          }}
+        >
+          <Triangles />
+        </View>
         <View style={styles.sectionContainer}>
           <ActivityCarousel header="Recent Activities" />
         </View>
         <View style={styles.sectionContainer}>
           <EnergyLevel />
         </View>
+        <View
+          style={{
+            position: "absolute",
+            top: 1600,
+            right: -22,
+            zIndex: -1,
+          }}
+        >
+          <Paint />
+        </View>
+        <View style={styles.sectionContainer}>
+          <Catergories />
+        </View>
+        <View style={styles.sectionContainer}>
+          <Quote />
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            top: 2450,
+            right: -22,
+            zIndex: -1,
+          }}
+        >
+          <Diamonds />
+        </View>
         <View style={styles.sectionContainer}>
           <ActivityCarousel header="Popular Activities" />
         </View>
+        <View
+          style={{
+            position: "absolute",
+            top: 3100,
+            right: -22,
+            zIndex: -1,
+          }}
+        >
+          <Halfsun />
+        </View>
         <View style={styles.sectionContainer}>
           <ActivityCarousel header="Try Again!" />
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            top: 3590,
+            left: -22,
+            zIndex: -1,
+          }}
+        >
+          <Vector />
         </View>
         <View style={styles.sectionContainer}>
           <ActivityCarousel header="Fun in the Sun" />

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import ActivityImage2 from "../../../assets/background/activityImage2.svg";
 import { TouchableOpacity } from "react-native-gesture-handler";
 export default function ActivityCardSimple() {
