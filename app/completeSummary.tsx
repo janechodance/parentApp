@@ -1,4 +1,10 @@
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import Confetti from "../assets/background/confetti.svg";
 import ConfettiBottom from "../assets/background/confettiBottom.svg";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
@@ -7,6 +13,7 @@ import NoteDisplay from "./component/summary/noteDisplay";
 import ImageDisplay from "./component/summary/imageDisplay";
 import ProgressDisplay from "./component/summary/progressDisplay";
 import Exit from "../assets/icons/exit.svg";
+import { router } from "expo-router";
 
 export default function CompleteSummary() {
   return (
@@ -17,9 +24,12 @@ export default function CompleteSummary() {
       <View style={styles.container}>
         <View>
           <Confetti style={{ position: "absolute" }} />
-          <View style={styles.exit}>
+          <TouchableOpacity
+            onPress={() => router.push("/")}
+            style={styles.exit}
+          >
             <Exit />
-          </View>
+          </TouchableOpacity>
           <Text style={styles.headerText}>Awesome Job!</Text>
           <Text style={styles.headerContentText}>
             Thank you for tracking your progress! This information helps us make

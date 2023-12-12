@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Image } from "react-native";
+import Pagination from "../../../assets/icons/pagination.svg";
 
 export default function ActivityImages() {
   return (
@@ -14,10 +15,9 @@ export default function ActivityImages() {
         style={styles.videoContainer}
         source={require("../../../assets/activities/colorSortingModifications.png")}
       />
-      <Image
-        style={styles.pagination}
-        source={require("../../../assets/icons/pagination.png")}
-      />
+      <View style={styles.pagination}>
+        <Pagination />
+      </View>
       <Text style={styles.captionText}>
         Alternative set-ups, modifications, and item examples
       </Text>
@@ -26,10 +26,9 @@ export default function ActivityImages() {
         style={styles.videoContainer}
         source={require("../../../assets/activities/colorSortingPersonal.png")}
       />
-      <Image
-        style={styles.pagination}
-        source={require("../../../assets/icons/pagination.png")}
-      />
+      <View style={styles.pagination}>
+        <Pagination />
+      </View>
       <Text style={styles.captionText}>Uploaded images and videos</Text>
     </View>
   );

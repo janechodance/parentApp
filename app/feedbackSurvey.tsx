@@ -10,6 +10,7 @@ import ImageUpload from "./component/survey/imageUpload";
 import NotificationBlack from "../assets/icons/notificationBlack.svg";
 import ScaleAnswer from "./component/survey/scaleAnswer";
 import { useState } from "react";
+import PlusCircle from "../assets/icons/plusCircle.svg";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -164,10 +165,9 @@ export default function FeedbackSurvey() {
           >
             Set Reminder?
           </Text>
-          <Image
-            style={{ marginLeft: 68 }}
-            source={require("../assets/icons/plusCircle.png")}
-          />
+          <View style={{ marginLeft: 68 }}>
+            <PlusCircle />
+          </View>
         </View>
       </View>
     </ScrollView>

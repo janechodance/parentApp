@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import TwoButtonFooter from "../footer/twoButtonFooter";
+import DottedCircle from "../../../assets/background/dottedCircle.svg";
 
 export default function ActivityCard() {
   const skills = [
@@ -16,10 +17,9 @@ export default function ActivityCard() {
           style={styles.activityImage}
           source={require("../../../assets/background/activityImage1.png")}
         />
-        <Image
-          style={styles.dottedCircle}
-          source={require("../../../assets/background/dottedCircle.png")}
-        />
+        <View style={styles.dottedCircle}>
+          <DottedCircle />
+        </View>
       </View>
       <View style={styles.detailContainer}>
         <FlatList

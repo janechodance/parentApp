@@ -8,6 +8,8 @@ import { router } from "expo-router";
 import ActivityCard from "./component/activityCard/activityCard";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
+import ArrowLeft from "../assets/icons/arrowLeft.svg";
+import Caret from "../assets/icons/caret.svg";
 
 export default function ActivityResults() {
   const activities = [1, 2, 3, 4, 5];
@@ -19,7 +21,7 @@ export default function ActivityResults() {
       <View style={styles.container}>
         <View style={styles.firstScreen}>
           <TouchableOpacity onPress={() => router.push("./clientSurvey")}>
-            <Image source={require("../assets/icons/arrowLeft.png")} />
+            <ArrowLeft />
           </TouchableOpacity>
           <Text style={styles.headerText}>Some Options for YOU!</Text>
         </View>
@@ -31,7 +33,7 @@ export default function ActivityResults() {
         />
         <View style={styles.moreButton}>
           <Text style={styles.moreText}>View More</Text>
-          <Image source={require("../assets/icons/caret.png")}></Image>
+          <Caret />
         </View>
       </View>
     </ScrollView>

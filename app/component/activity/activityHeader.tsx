@@ -2,11 +2,11 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   TouchableOpacity,
   FlatList,
 } from "react-native";
 import SolidStar from "../../../assets/icons/solidStar.svg";
+import CaretRight from "../../../assets/icons/caretRight.svg";
 
 export default function ActivityHeader() {
   const skills = ["Cognitive Skills", "Fine Motor Skills", "Life Skills"];
@@ -56,7 +56,7 @@ export default function ActivityHeader() {
       </View>
       <TouchableOpacity style={styles.moreButton}>
         <Text style={styles.moreText}>View More Tags</Text>
-        <Image source={require("../../../assets/icons/caretRight.png")} />
+        <CaretRight />
       </TouchableOpacity>
     </View>
   );

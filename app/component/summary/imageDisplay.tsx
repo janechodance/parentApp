@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import Pagination from "../../../assets/icons/pagination.svg";
 
 export default function ImageDisplay() {
   return (
@@ -9,10 +10,9 @@ export default function ImageDisplay() {
         style={styles.videoContainer}
         source={require("../../../assets/activities/summaryImage.png")}
       />
-      <Image
-        style={styles.pagination}
-        source={require("../../../assets/icons/pagination.png")}
-      />
+      <View style={styles.pagination}>
+        <Pagination />
+      </View>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>View All Images</Text>
       </TouchableOpacity>

@@ -1,10 +1,12 @@
 import { router } from "expo-router";
-import { TouchableOpacity, Image, Text, StyleSheet, View } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
+import ArrowLeft from "../../../assets/icons/arrowLeft.svg";
+
 export default function HeaderWithNotes() {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => router.back()}>
-        <Image source={require("../../../assets/icons/arrowLeft.png")} />
+        <ArrowLeft />
       </TouchableOpacity>
       <TouchableOpacity style={styles.notesButton}>
         <Text style={styles.notesButtonText}>Notes</Text>

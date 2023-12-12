@@ -1,4 +1,6 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Caret from "../../../assets/icons/caret.svg";
+import CaretUp from "../../../assets/icons/caretUp.svg";
 
 interface accordionProp {
   header: string;
@@ -14,13 +16,7 @@ export default function Accordion({
     <View style={styles.container}>
       <Text style={styles.text}>{header}</Text>
       <TouchableOpacity style={styles.caret} onPress={() => setIsOpen(!isOpen)}>
-        <Image
-          source={
-            isOpen
-              ? require("../../../assets/icons/caretUp.png")
-              : require("../../../assets/icons/caret.png")
-          }
-        />
+        {isOpen ? <CaretUp /> : <Caret />}
       </TouchableOpacity>
     </View>
   );

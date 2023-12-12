@@ -10,6 +10,7 @@ import ActivityModifications from "./component/activity/activityModifications";
 import ActivityCredit from "./component/activity/activityCredits";
 import TwoButtonFooter from "./component/footer/twoButtonFooter";
 import HeaderWithNotes from "./component/header/headerWithNotes";
+import Pagination from "../assets/icons/pagination.svg";
 
 export default function ActivityDetails() {
   const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
@@ -27,10 +28,9 @@ export default function ActivityDetails() {
             style={styles.activityImage}
             source={require("../assets/activities/colorSortingActivity.png")}
           />
-          <Image
-            style={styles.paginationIcon}
-            source={require("../assets/icons/pagination.png")}
-          />
+          <View style={styles.paginationIcon}>
+            <Pagination />
+          </View>
         </View>
         <ActivityHeader />
         <ActivityHistory />
