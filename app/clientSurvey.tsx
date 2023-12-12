@@ -92,7 +92,7 @@ export default function ClientSurvey() {
         <View
           style={{
             position: "absolute",
-            top: 1780,
+            top: 1800,
             right: -22,
             zIndex: -1,
           }}
@@ -108,7 +108,7 @@ export default function ClientSurvey() {
         <View
           style={{
             position: "absolute",
-            top: 2100,
+            top: 2125,
             left: -22,
             zIndex: -1,
           }}
