@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
 import RadioButtonCollection from "./component/survey/radioButtonCollection";
@@ -11,6 +11,8 @@ import Circles from "../assets/background/circles.svg";
 import Squiggles from "../assets/background/squiggle.svg";
 import Squares from "../assets/background/squares.svg";
 import BigSquiggle from "../assets/background/bigSquiggle.svg";
+import { useState } from "react";
+import CheckboxCollection from "./component/survey/checkboxCollection";
 
 export default function ClientSurvey() {
   const timeOptions = [
@@ -33,6 +35,9 @@ export default function ClientSurvey() {
     "Stander",
     "Not applicable",
   ];
+  const [timeSelected, setTimeSelected] = useState(-1);
+  const [personSelected, setPersonSelected] = useState<number[] | []>([]);
+  const [equipmentSelected, setEquipmentSelected] = useState<number[] | []>([]);
 
   return (
     <ScrollView
@@ -63,7 +68,11 @@ export default function ClientSurvey() {
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>How much time do you have?</Text>
-          <RadioButtonCollection options={timeOptions} style="circle" />
+          <RadioButtonCollection
+            options={timeOptions}
+            timeSelected={timeSelected}
+            setTimeSelected={setTimeSelected}
+          />
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>Where are you?</Text>
@@ -87,7 +96,11 @@ export default function ClientSurvey() {
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>Is anyone with you today?</Text>
-          <RadioButtonCollection options={personOptions} style="square" />
+          <CheckboxCollection
+            options={personOptions}
+            optionsSelected={personSelected}
+            setOptionsSelected={setPersonSelected}
+          />
         </View>
         <View
           style={{
@@ -103,7 +116,11 @@ export default function ClientSurvey() {
           <Text style={styles.questionText}>
             What equipment do you have today?
           </Text>
-          <RadioButtonCollection options={equipmentOptions} style="square" />
+          <CheckboxCollection
+            options={equipmentOptions}
+            optionsSelected={equipmentSelected}
+            setOptionsSelected={setEquipmentSelected}
+          />
         </View>
         <View
           style={{

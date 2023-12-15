@@ -11,6 +11,7 @@ import NotificationBlack from "../assets/icons/notificationBlack.svg";
 import ScaleAnswer from "./component/survey/scaleAnswer";
 import { useState } from "react";
 import PlusCircle from "../assets/icons/plusCircle.svg";
+import CheckboxCollection from "./component/survey/checkboxCollection";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -35,8 +36,13 @@ export default function FeedbackSurvey() {
     "AAC device",
     "Other",
   ];
+  const [starRating, setStarRating] = useState(0);
   const [again, setAgain] = useState("");
   const [complete, setComplete] = useState("");
+  const [timeSelected, setTimeSelected] = useState(-1);
+  const [challengeSelected, setChallengeSelected] = useState<number[] | []>([]);
+  const [materialSelected, setMaterialSelected] = useState<number[] | []>([]);
+
   return (
     <ScrollView
       style={styles.background}
@@ -82,7 +88,12 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <SurveyQuestion
             question="How would you rate this activity?"
-            answer={<StarsAnswer />}
+            answer={
+              <StarsAnswer
+                starRating={starRating}
+                setStarRating={setStarRating}
+              />
+            }
           />
         </View>
         <View style={styles.questionContainer}>
@@ -107,9 +118,10 @@ export default function FeedbackSurvey() {
           <SurveyQuestion
             question="Please share what made this activity challenging?"
             answer={
-              <RadioButtonCollection
+              <CheckboxCollection
                 options={challengingOptions}
-                style="square"
+                optionsSelected={challengeSelected}
+                setOptionsSelected={setChallengeSelected}
               />
             }
           />
@@ -118,7 +130,11 @@ export default function FeedbackSurvey() {
           <SurveyQuestion
             question="How long did you do this activity today?"
             answer={
-              <RadioButtonCollection options={timeOptions} style="circle" />
+              <RadioButtonCollection
+                options={timeOptions}
+                timeSelected={timeSelected}
+                setTimeSelected={setTimeSelected}
+              />
             }
           />
         </View>
@@ -126,9 +142,10 @@ export default function FeedbackSurvey() {
           <SurveyQuestion
             question="What materials did you use during the color sorting activity?"
             answer={
-              <RadioButtonCollection
+              <CheckboxCollection
                 options={materialsOptions}
-                style="square"
+                optionsSelected={materialSelected}
+                setOptionsSelected={setMaterialSelected}
               />
             }
           />
