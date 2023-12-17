@@ -1,18 +1,24 @@
 import { View, Text, StyleSheet } from "react-native";
-import { ProgressBar } from "react-native-paper";
-import ProgressBarCircle from "../../../assets/icons/progressBarCircle.svg";
 import { useState } from "react";
+import { Slider } from "@miblanchard/react-native-slider";
+import TrackMark from "../../../assets/icons/trackMark.svg";
+
 export default function ScaleAnswer() {
-  const [level, setLevel] = useState(0.5);
+  const [level, setLevel] = useState(0);
   return (
     <View style={styles.container}>
-      <ProgressBar
-        progress={level}
-        color={"#2563EB"}
-        style={styles.progressBar}
-      />
-      <ProgressBarCircle
-        style={{ ...styles.progressBarCircle, left: 287 * level }}
+      <Slider
+        minimumValue={0}
+        maximumValue={10}
+        step={1}
+        maximumTrackTintColor="#F3F4F6"
+        minimumTrackTintColor="#2563EB"
+        thumbTintColor="#2563EB"
+        trackStyle={{ height: 8, borderRadius: 100, width: 287 }}
+        renderTrackMarkComponent={() => <TrackMark />}
+        trackMarks={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        onValueChange={(value) => setLevel(value[0])}
+        value={level}
       />
       <View style={styles.levelContainer}>
         <Text style={styles.levelNumberText}>0</Text>
@@ -40,20 +46,11 @@ const styles = StyleSheet.create({
     marginTop: 24,
     alignSelf: "center",
   },
-  progressBar: {
-    width: 287,
-    height: 8,
-    backgroundColor: "#F3F4F6",
-    borderRadius: 100,
-    alignSelf: "flex-start",
-  },
-  progressBarCircle: {
-    top: -12,
-  },
   levelContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: 304,
+    width: 287,
+    marginTop: 8,
   },
   levelNumberText: {
     fontFamily: "Arimo-Regular",
