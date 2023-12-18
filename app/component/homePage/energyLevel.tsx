@@ -1,10 +1,9 @@
 import { StyleSheet, View, Text, Image } from "react-native";
-import { ProgressBar } from "react-native-paper";
-import ProgressBarCircle from "../../../assets/icons/progressBarCircle.svg";
 import { useState } from "react";
+import { Slider } from "@miblanchard/react-native-slider";
 
 export default function EnergyLevel() {
-  const [level, setLevel] = useState(0.37);
+  const [level, setLevel] = useState(50);
   return (
     <View>
       <Image
@@ -17,14 +16,17 @@ export default function EnergyLevel() {
         source={require("../../../assets/background/plant.png")}
       />
       <Text style={styles.headerText}>How is your energy level today?</Text>
-      <ProgressBar
-        progress={level}
-        color={"#2563EB"}
-        style={styles.progressBar}
-      />
-
-      <ProgressBarCircle
-        style={{ ...styles.progressBarCircle, left: 314 * level }}
+      <Slider
+        minimumValue={0}
+        maximumValue={100}
+        step={1}
+        maximumTrackTintColor="#F3F4F6"
+        minimumTrackTintColor="#2563EB"
+        thumbTintColor="#2563EB"
+        trackStyle={{ height: 8, borderRadius: 100, width: 314 }}
+        onValueChange={(value) => setLevel(value[0])}
+        value={level}
+        containerStyle={{ width: 314 }}
       />
 
       <View style={styles.progressBarNumberContainer}>
@@ -45,22 +47,12 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     alignSelf: "flex-start",
     marginTop: 40,
-  },
-  progressBar: {
-    width: 314,
-    height: 8,
-    marginTop: 16,
-    backgroundColor: "#F3F4F6",
-    borderRadius: 100,
-  },
-  progressBarCircle: {
-    top: -12,
+    marginBottom: 16,
   },
   progressBarNumberContainer: {
     flexDirection: "row",
-    width: 314,
+    width: 330,
     justifyContent: "space-between",
-    marginTop: -10,
   },
   progressBarNumber: {
     fontFamily: "Arimo-Regular",

@@ -4,7 +4,7 @@ import { Slider } from "@miblanchard/react-native-slider";
 import TrackMark from "../../../assets/icons/trackMark.svg";
 
 export default function ScaleAnswer() {
-  const [level, setLevel] = useState(0);
+  const [level, setLevel] = useState(2);
   return (
     <View style={styles.container}>
       <Slider
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   levelContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: 287,
+    width: 290,
     marginTop: 8,
   },
   levelNumberText: {
