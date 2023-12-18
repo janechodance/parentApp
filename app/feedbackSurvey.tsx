@@ -105,7 +105,7 @@ export default function FeedbackSurvey() {
         <View style={styles.questionContainer}>
           <SurveyQuestion
             question="Did your child enjoy the activity?"
-            answer={<MoodCardAnswer />}
+            answer={<MoodCardAnswer feedback />}
           />
         </View>
         <View style={styles.questionContainer}>

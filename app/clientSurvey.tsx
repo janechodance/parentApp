@@ -13,6 +13,7 @@ import Squares from "../assets/background/squares.svg";
 import BigSquiggle from "../assets/background/bigSquiggle.svg";
 import { useState } from "react";
 import CheckboxCollection from "./component/survey/checkboxCollection";
+import MoodCardAnswer from "./component/survey/moodCardAnswer";
 
 export default function ClientSurvey() {
   const timeOptions = [
@@ -134,15 +135,11 @@ export default function ClientSurvey() {
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>How is your child feeling?</Text>
-          <View style={styles.screenImage}>
-            <MoodCardGood />
-          </View>
+          <MoodCardAnswer />
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>How are you feeling?</Text>
-          <View style={styles.screenImage}>
-            <MoodCardGreat />
-          </View>
+          <MoodCardAnswer />
         </View>
         <View style={styles.submitButtonContainer}>
           <OneButtonFooter buttonText="Submit" buttonTo="../activityResults" />
