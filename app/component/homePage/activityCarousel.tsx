@@ -1,19 +1,25 @@
 import { StyleSheet, View, Text } from "react-native";
 import ActivityCardSimple from "../activityCard/activityCardSimple";
+import Carousel from "react-native-snap-carousel";
 
 interface activityCarouselProps {
   header: string;
 }
 export default function ActivityCarousel({ header }: activityCarouselProps) {
+  const activities = [1, 2, 3, 4, 5];
   return (
     <View>
       <Text style={styles.headerText}>{header}</Text>
-      <View style={styles.activityContainer}>
-        <ActivityCardSimple />
-        <View style={{ marginLeft: 20 }}>
-          <ActivityCardSimple />
-        </View>
-      </View>
+      <Carousel
+        data={activities}
+        renderItem={() => <ActivityCardSimple />}
+        itemWidth={200}
+        sliderWidth={320}
+        vertical={false}
+        layout="default"
+        activeSlideAlignment="start"
+        inactiveSlideScale={1}
+      />
     </View>
   );
 }

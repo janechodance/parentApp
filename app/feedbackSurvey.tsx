@@ -52,7 +52,7 @@ export default function FeedbackSurvey() {
         <Text style={styles.headerText}>Feedback Survey</Text>
         <Image
           style={styles.feebackImage}
-          source={require("../assets/feedback.png")}
+          source={require("../assets/background/feedback.png")}
         />
         <Text style={styles.descriptionHeaderText}>
           Fill out as much or as little as you like.
