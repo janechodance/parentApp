@@ -39,6 +39,8 @@ export default function ClientSurvey() {
   const [timeSelected, setTimeSelected] = useState(-1);
   const [personSelected, setPersonSelected] = useState<number[] | []>([]);
   const [equipmentSelected, setEquipmentSelected] = useState<number[] | []>([]);
+  const [location, setLocation] = useState("");
+  const [skill, setSkill] = useState("");
 
   return (
     <ScrollView
@@ -77,7 +79,7 @@ export default function ClientSurvey() {
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>Where are you?</Text>
-          <LocationAnswer />
+          <LocationAnswer location={location} setLocation={setLocation} />
         </View>
         <View
           style={{
@@ -93,7 +95,7 @@ export default function ClientSurvey() {
           <Text style={styles.questionText}>
             What skills do you want to practice?
           </Text>
-          <SkillAnswer />
+          <SkillAnswer skill={skill} setSkill={setSkill} />
         </View>
         <View style={styles.screen}>
           <Text style={styles.questionText}>Is anyone with you today?</Text>

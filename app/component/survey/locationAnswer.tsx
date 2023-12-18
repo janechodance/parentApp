@@ -5,30 +5,74 @@ import CarButton from "../../../assets/icons/car.svg";
 import StoreButton from "../../../assets/icons/store.svg";
 import Caret from "../../../assets/icons/caret.svg";
 
-export default function LocationAnswer() {
+interface locationAnswerProps {
+  location: string;
+  setLocation: (location: string) => void;
+}
+
+export default function LocationAnswer({
+  location,
+  setLocation,
+}: locationAnswerProps) {
   return (
     <>
       <View style={styles.locationContainer}>
-        <TouchableOpacity>
-          <View style={styles.locationButtonContainer}>
+        <TouchableOpacity onPress={() => setLocation("home")}>
+          <View
+            style={
+              location === "home"
+                ? {
+                    ...styles.locationButtonContainer,
+                    backgroundColor: "#795695",
+                  }
+                : styles.locationButtonContainer
+            }
+          >
             <HomeButton />
           </View>
           <Text style={styles.locationOptionsText}>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.locationButtonContainer}>
+        <TouchableOpacity onPress={() => setLocation("outside")}>
+          <View
+            style={
+              location === "outside"
+                ? {
+                    ...styles.locationButtonContainer,
+                    backgroundColor: "#795695",
+                  }
+                : styles.locationButtonContainer
+            }
+          >
             <OutsideButton />
           </View>
           <Text style={styles.locationOptionsText}>Outside</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.locationButtonContainer}>
+        <TouchableOpacity onPress={() => setLocation("car")}>
+          <View
+            style={
+              location === "car"
+                ? {
+                    ...styles.locationButtonContainer,
+                    backgroundColor: "#795695",
+                  }
+                : styles.locationButtonContainer
+            }
+          >
             <CarButton />
           </View>
           <Text style={styles.locationOptionsText}>Car</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.locationButtonContainer}>
+        <TouchableOpacity onPress={() => setLocation("store")}>
+          <View
+            style={
+              location === "store"
+                ? {
+                    ...styles.locationButtonContainer,
+                    backgroundColor: "#795695",
+                  }
+                : styles.locationButtonContainer
+            }
+          >
             <StoreButton />
           </View>
           <Text style={styles.locationOptionsText}>Store</Text>
