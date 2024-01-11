@@ -12,8 +12,20 @@ import Halfsun from "../assets/background/halfsun.svg";
 import Vector from "../assets/background/Vector.svg";
 import Triangles from "../assets/background/triangles.svg";
 import Circles from "../assets/background/circles.svg";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function App() {
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    axios
+      .get("https://f017-37-19-220-197.ngrok-free.app/user/1")
+      .then((res) => setUser(res.data.name))
+      .catch((error) => {
+        // Handle any errors that occur
+        console.error(error);
+      });
+  }, []);
   return (
     <ScrollView
       style={styles.scrollView}
@@ -31,7 +43,7 @@ export default function App() {
           <Circles />
         </View>
         <View style={styles.welcomeScreen}>
-          <Text style={styles.welcomeText}>Welcome Back, Max!</Text>
+          <Text style={styles.welcomeText}>Welcome Back, {user}!</Text>
           <Image
             style={styles.welcomeImage}
             source={require("../assets/background/homepageImage.png")}
