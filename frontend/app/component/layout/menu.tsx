@@ -18,19 +18,42 @@ export default function HamburgerMenu() {
         optionsContainerStyle={styles.optionContainer}
         customStyles={{ optionText: styles.optionText }}
       >
+        <MenuOption text="search" style={styles.optionStyle}></MenuOption>
         <MenuOption
           onSelect={() => router.push("/")}
           text="My Activity Finder"
+          style={styles.optionStyle}
         />
-        <MenuOption onSelect={() => router.push("/explore")} text="Explore" />
+        <MenuOption
+          onSelect={() => router.push("/explore")}
+          text="Explore"
+          style={styles.optionStyle}
+        />
         <MenuOption
           onSelect={() => router.push("/progressLog")}
           text="Progress Log"
+          style={styles.optionStyle}
         />
-        <MenuOption onSelect={() => router.push("/calendar")} text="Calendar" />
-        <MenuOption onSelect={() => router.push("/alerts")} text="Reminders" />
-        <MenuOption onSelect={() => router.push("/profile")} text="Profile" />
-        <MenuOption onSelect={() => router.push("/settings")} text="Settings" />
+        <MenuOption
+          onSelect={() => router.push("/calendar")}
+          text="Calendar"
+          style={styles.optionStyle}
+        />
+        <MenuOption
+          onSelect={() => router.push("/alerts")}
+          text="Reminders"
+          style={styles.optionStyle}
+        />
+        <MenuOption
+          onSelect={() => router.push("/profile")}
+          text="Profile"
+          style={styles.optionStyle}
+        />
+        <MenuOption
+          onSelect={() => router.push("/settings")}
+          text="Settings"
+          style={styles.optionStyle}
+        />
       </MenuOptions>
     </Menu>
   );
@@ -38,11 +61,19 @@ export default function HamburgerMenu() {
 const styles = StyleSheet.create({
   optionContainer: {
     marginTop: 30,
-    padding: 16,
+    width: 360,
+    height: 604,
   },
   optionText: {
     fontFamily: "Jost-Medium",
     fontSize: 16,
     lineHeight: 24,
+  },
+  optionStyle: {
+    height: 75,
+    borderTopColor: "#CACACA",
+    borderTopWidth: 1,
+    paddingLeft: 26,
+    justifyContent: "center",
   },
 });

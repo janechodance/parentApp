@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import HomeButton from "../../../assets/icons/home.svg";
 import OutsideButton from "../../../assets/icons/tree.svg";
 import CarButton from "../../../assets/icons/car.svg";
-import StoreButton from "../../../assets/icons/store.svg";
+import CommunityButton from "../../../assets/icons/community.svg";
 import Caret from "../../../assets/icons/caret.svg";
 
 interface locationAnswerProps {
@@ -23,12 +23,12 @@ export default function LocationAnswer({
               location === "home"
                 ? {
                     ...styles.locationButtonContainer,
-                    backgroundColor: "#795695",
+                    backgroundColor: "#3350E9",
                   }
                 : styles.locationButtonContainer
             }
           >
-            <HomeButton />
+            <HomeButton color={location === "home" ? "#FFFFFF" : "#3350E9"} />
           </View>
           <Text style={styles.locationOptionsText}>Home</Text>
         </TouchableOpacity>
@@ -38,12 +38,14 @@ export default function LocationAnswer({
               location === "outside"
                 ? {
                     ...styles.locationButtonContainer,
-                    backgroundColor: "#795695",
+                    backgroundColor: "#3350E9",
                   }
                 : styles.locationButtonContainer
             }
           >
-            <OutsideButton />
+            <OutsideButton
+              color={location === "outside" ? "#FFFFFF" : "#3350E9"}
+            />
           </View>
           <Text style={styles.locationOptionsText}>Outside</Text>
         </TouchableOpacity>
@@ -53,29 +55,33 @@ export default function LocationAnswer({
               location === "car"
                 ? {
                     ...styles.locationButtonContainer,
-                    backgroundColor: "#795695",
+                    backgroundColor: "#3350E9",
                   }
                 : styles.locationButtonContainer
             }
           >
-            <CarButton />
+            <CarButton color={location === "car" ? "#FFFFFF" : "#3350E9"} />
           </View>
           <Text style={styles.locationOptionsText}>Car</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setLocation("store")}>
+        <TouchableOpacity onPress={() => setLocation("community")}>
           <View
             style={
-              location === "store"
+              location === "community"
                 ? {
                     ...styles.locationButtonContainer,
-                    backgroundColor: "#795695",
+                    backgroundColor: "#3350E9",
                   }
                 : styles.locationButtonContainer
             }
           >
-            <StoreButton />
+            <CommunityButton
+              color={location === "community" ? "#FFFFFF" : "#3350E9"}
+            />
           </View>
-          <Text style={styles.locationOptionsText}>Store</Text>
+          <Text style={{ ...styles.locationOptionsText, left: -5 }}>
+            Community
+          </Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.moreButton}>

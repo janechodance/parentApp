@@ -2,8 +2,6 @@ import { View, Text, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
 import RadioButtonCollection from "./component/survey/radioButtonCollection";
-import MoodCardGood from "../assets/moodCardGood.svg";
-import MoodCardGreat from "../assets/moodCardGreat.svg";
 import ClientSurveyImage from "../assets/background/clientSurveyImage.svg";
 import LocationAnswer from "./component/survey/locationAnswer";
 import SkillAnswer from "./component/survey/skillAnswer";

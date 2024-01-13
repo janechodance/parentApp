@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 import ThumbUp from "../../../assets/icons/thumbUp.svg";
 import ThumbDown from "../../../assets/icons/thumbDown.svg";
-import ThumbsUpSolid from "../../../assets/icons/thumbsUpSolid.svg";
-import ThumbsDownSolid from "../../../assets/icons/thumbsDownSolid.svg";
+import ThumbsUpSelected from "../../../assets/icons/thumbUpSelected.svg";
+import ThumbsDownSelected from "../../../assets/icons/thumbDownSelected.svg";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 interface thumbUpDownProps {
@@ -16,14 +16,14 @@ export default function ThumbUpDown({ value, setValue }: thumbUpDownProps) {
         onPress={() => setValue("yes")}
         style={styles.optionsConatiner}
       >
-        {value === "yes" ? <ThumbsUpSolid /> : <ThumbUp />}
+        {value === "yes" ? <ThumbsUpSelected /> : <ThumbUp />}
         <Text style={styles.text}>Yes</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => setValue("no")}
         style={styles.optionsConatiner}
       >
-        {value === "no" ? <ThumbsDownSolid /> : <ThumbDown />}
+        {value === "no" ? <ThumbsDownSelected /> : <ThumbDown />}
         <Text style={styles.text}>No</Text>
       </TouchableOpacity>
     </View>

@@ -13,21 +13,37 @@ export default function SkillAnswer({ skill, setSkill }: skillAnswerProps) {
           onPress={() => setSkill("gross_motor")}
           style={
             skill === "gross_motor"
-              ? { ...styles.skillButton, backgroundColor: "#795695" }
+              ? { ...styles.skillButton, backgroundColor: "#3350E9" }
               : styles.skillButton
           }
         >
-          <Text style={styles.skillsButtonText}>Gross Motor</Text>
+          <Text
+            style={
+              skill === "gross_motor"
+                ? { ...styles.skillsButtonText, color: "white" }
+                : styles.skillsButtonText
+            }
+          >
+            Gross Motor
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setSkill("fine_motor")}
           style={
             skill === "fine_motor"
-              ? { ...styles.skillButton, backgroundColor: "#795695" }
+              ? { ...styles.skillButton, backgroundColor: "#3350E9" }
               : styles.skillButton
           }
         >
-          <Text style={styles.skillsButtonText}>Fine Motor</Text>
+          <Text
+            style={
+              skill === "fine_motor"
+                ? { ...styles.skillsButtonText, color: "white" }
+                : styles.skillsButtonText
+            }
+          >
+            Fine Motor
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.skillButtonContainer}>
@@ -35,21 +51,37 @@ export default function SkillAnswer({ skill, setSkill }: skillAnswerProps) {
           onPress={() => setSkill("communication")}
           style={
             skill === "communication"
-              ? { ...styles.skillButton, backgroundColor: "#795695" }
+              ? { ...styles.skillButton, backgroundColor: "#3350E9" }
               : styles.skillButton
           }
         >
-          <Text style={styles.skillsButtonText}>Communication</Text>
+          <Text
+            style={
+              skill === "communication"
+                ? { ...styles.skillsButtonText, color: "white" }
+                : styles.skillsButtonText
+            }
+          >
+            Communication
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setSkill("social_play")}
           style={
             skill === "social_play"
-              ? { ...styles.skillButton, backgroundColor: "#795695" }
+              ? { ...styles.skillButton, backgroundColor: "#3350E9" }
               : styles.skillButton
           }
         >
-          <Text style={styles.skillsButtonText}>Social Play</Text>
+          <Text
+            style={
+              skill === "social_play"
+                ? { ...styles.skillsButtonText, color: "white" }
+                : styles.skillsButtonText
+            }
+          >
+            Social Play
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.skillButtonContainer}>
@@ -57,21 +89,37 @@ export default function SkillAnswer({ skill, setSkill }: skillAnswerProps) {
           onPress={() => setSkill("adl")}
           style={
             skill === "adl"
-              ? { ...styles.skillButton, backgroundColor: "#795695" }
+              ? { ...styles.skillButton, backgroundColor: "#3350E9" }
               : styles.skillButton
           }
         >
-          <Text style={styles.skillsButtonText}>Daily Living Skills</Text>
+          <Text
+            style={
+              skill === "adl"
+                ? { ...styles.skillsButtonText, color: "white" }
+                : styles.skillsButtonText
+            }
+          >
+            Daily Living Skills
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => setSkill("flexible")}
           style={
             skill === "flexible"
-              ? { ...styles.skillButton, backgroundColor: "#795695" }
+              ? { ...styles.skillButton, backgroundColor: "#3350E9" }
               : styles.skillButton
           }
         >
-          <Text style={styles.skillsButtonText}>I'm Flexible</Text>
+          <Text
+            style={
+              skill === "flexible"
+                ? { ...styles.skillsButtonText, color: "white" }
+                : styles.skillsButtonText
+            }
+          >
+            I'm Flexible
+          </Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity style={styles.moreButton}>
