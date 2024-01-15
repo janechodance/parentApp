@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, ScrollView } from "react-native";
 import ActivityHeader from "./component/activity/activityHeader";
 import ActivityHistory from "./component/activity/activityHistory";
 import Accordion from "./component/activity/accordion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ActivityMaterials from "./component/activity/activityMaterials";
 import ActivityInstructions from "./component/activity/activityInstructions";
 import ActivityModifications from "./component/activity/activityModifications";
@@ -11,12 +11,25 @@ import ActivityCredit from "./component/activity/activityCredits";
 import TwoButtonFooter from "./component/footer/twoButtonFooter";
 import HeaderWithNotes from "./component/header/headerWithNotes";
 import Pagination from "../assets/icons/pagination.svg";
+import axios from "axios";
+import { Activity } from "./customtypes/types";
 
 export default function ActivityDetails() {
   const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
   const [isInstructionsOpen, setIsInstructionsOpen] = useState(false);
   const [isModificationsOpen, setIsModificationsOpen] = useState(false);
-  return (
+  const [activity, setActivity] = useState<Activity>();
+  useEffect(() => {
+    axios
+      .get("https://f017-37-19-220-197.ngrok-free.app/activity/1")
+      .then((res) => setActivity(res.data))
+      .catch((error) => {
+        // Handle any errors that occur
+        console.error(error);
+      });
+  }, []);
+  console.log(activity);
+  return activity ? (
     <ScrollView
       style={styles.scrollView}
       contentContainerStyle={{ alignItems: "center" }}
@@ -32,7 +45,12 @@ export default function ActivityDetails() {
             <Pagination />
           </View>
         </View>
-        <ActivityHeader />
+        <ActivityHeader
+          name={activity.name}
+          setup_time={activity.setup_time}
+          active_time={activity.active_time}
+          description={activity.description}
+        />
         <ActivityHistory />
         <View style={{ ...styles.accordion, marginTop: 56 }}>
           <Accordion
@@ -72,7 +90,7 @@ export default function ActivityDetails() {
         </View>
       </View>
     </ScrollView>
-  );
+  ) : null;
 }
 const styles = StyleSheet.create({
   scrollView: {

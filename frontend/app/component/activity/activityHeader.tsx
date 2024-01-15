@@ -8,27 +8,39 @@ import {
 import SolidStar from "../../../assets/icons/solidStar.svg";
 import CaretRight from "../../../assets/icons/caretRight.svg";
 
-export default function ActivityHeader() {
+interface activityHeaderProps {
+  name: string;
+  setup_time: number;
+  active_time: number;
+  description: string;
+}
+
+export default function ActivityHeader({
+  name,
+  setup_time,
+  active_time,
+  description,
+}: activityHeaderProps) {
   const skills = ["Cognitive Skills", "Fine Motor Skills", "Life Skills"];
   const skills2 = ["Communication", "Problem Solving", "AAC"];
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.name}>Color Sorting</Text>
+        <Text style={styles.name}>{name}</Text>
         <SolidStar />
       </View>
       <View style={styles.details}>
         <View style={styles.timeContainer}>
-          <Text style={styles.timeHeaderText}>Time Estimate:</Text>
+          <Text style={styles.timeHeaderText}>Setup Time:</Text>
           <Text style={{ ...styles.timeText, marginLeft: 4, marginBottom: 1 }}>
-            15 minutes
+            {setup_time} minutes
+          </Text>
+          <Text style={styles.timeHeaderText}>Active Time:</Text>
+          <Text style={{ ...styles.timeText, marginLeft: 4, marginBottom: 1 }}>
+            {active_time} minutes
           </Text>
         </View>
-        <Text style={styles.timeText}>
-          With a variety of options and almost limitless possibilities, this
-          activity can be easily changed to work on different concepts and
-          levels of difficulty.
-        </Text>
+        <Text style={styles.timeText}>{description}</Text>
       </View>
       <View style={styles.skillsContainer}>
         <FlatList
