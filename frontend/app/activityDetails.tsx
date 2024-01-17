@@ -13,6 +13,7 @@ import HeaderWithNotes from "./component/header/headerWithNotes";
 import Pagination from "../assets/icons/pagination.svg";
 import axios from "axios";
 import { Activity } from "./customtypes/types";
+import ActivitySkills from "./component/activity/activitySkills";
 
 export default function ActivityDetails() {
   const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
@@ -50,6 +51,10 @@ export default function ActivityDetails() {
           setup_time={activity.setup_time}
           active_time={activity.active_time}
           description={activity.description}
+        />
+        <ActivitySkills
+          primarySkillsIds={activity.primary_skills_ids}
+          secondarySkillsIds={activity.secondary_skills_ids}
         />
         <ActivityHistory />
         <View style={{ ...styles.accordion, marginTop: 56 }}>
