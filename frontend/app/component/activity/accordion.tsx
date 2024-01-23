@@ -13,7 +13,7 @@ export default function Accordion({
   setIsOpen,
 }: accordionProp) {
   return (
-    <View style={styles.container}>
+    <View style={isOpen ? styles.containerOpened : styles.container}>
       <Text style={styles.text}>{header}</Text>
       <TouchableOpacity style={styles.caret} onPress={() => setIsOpen(!isOpen)}>
         {isOpen ? <CaretUp /> : <Caret />}
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderBottomColor: "#D1D1D1",
     borderBottomWidth: 1,
+  },
+  containerOpened: {
+    flexDirection: "row",
   },
   text: {
     fontFamily: "Jost-Medium",

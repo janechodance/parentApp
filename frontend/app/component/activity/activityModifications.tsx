@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 56,
     padding: 16,
+    borderBottomColor: "#D1D1D1",
+    borderBottomWidth: 1,
+    paddingBottom: 8,
   },
   itemText: {
     fontFamily: "Arimo-Regular",

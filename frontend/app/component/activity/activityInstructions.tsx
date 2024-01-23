@@ -24,8 +24,7 @@ export default function ActivityInstructions() {
   ];
 
   return (
-    <View>
-      <Text style={styles.header}>Instructions</Text>
+    <View style={styles.container}>
       <FlatList
         key={uuidv4()}
         data={steps}
@@ -48,5 +47,10 @@ const styles = StyleSheet.create({
   },
   stepContainer: {
     marginTop: 42,
+  },
+  container: {
+    borderBottomColor: "#D1D1D1",
+    borderBottomWidth: 1,
+    paddingBottom: 8,
   },
 });

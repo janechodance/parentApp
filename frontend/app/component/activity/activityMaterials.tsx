@@ -12,8 +12,7 @@ export default function ActivityMaterials() {
     "AAC device (optional)",
   ];
   return (
-    <View>
-      <Text style={styles.header}>Materials</Text>
+    <View style={styles.container}>
       <Text style={styles.description}>
         To do this activity, you need items with solid colors. The items below
         are examples of items you can use.
@@ -30,6 +29,11 @@ export default function ActivityMaterials() {
   );
 }
 const styles = StyleSheet.create({
+  container: {
+    borderBottomColor: "#D1D1D1",
+    borderBottomWidth: 1,
+    paddingBottom: 8,
+  },
   header: {
     fontFamily: "Jost-Medium",
     fontSize: 28,
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     color: "#5D5D5D",
-    marginTop: 16,
+    marginTop: 8,
     marginBottom: 24,
   },
   itemText: {
