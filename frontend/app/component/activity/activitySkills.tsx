@@ -4,6 +4,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
+  ActivityIndicator,
 } from "react-native";
 import CaretRight from "../../../assets/icons/caretRight.svg";
 import { useEffect, useState } from "react";
@@ -16,16 +17,15 @@ interface activitySkillsProps {
 
 export default function ActivitySkills({
   primarySkillsIds,
-  secondarySkillsIds,
 }: activitySkillsProps) {
-  const [skills, setSkills] = useState<string[]>();
+  const [skills, setSkills] = useState<string[]>([]);
   useEffect(() => {
-    primarySkillsIds.map((id) => {
+    primarySkillsIds.map((id: number) => {
       axios
         .get(`https://f017-37-19-220-197.ngrok-free.app/skill/${id}`)
         .then((res) => {
-          const newSkills = skills?.push(res.data.name);
-          console.log(newSkills);
+          skills.push(res.data.name);
+          setSkills([...skills]);
         })
         .catch((error) => {
           // Handle any errors that occur
@@ -33,7 +33,8 @@ export default function ActivitySkills({
         });
     });
   }, []);
-  return (
+  console.log(skills);
+  return skills.length !== 0 ? (
     <View style={styles.container}>
       <View style={styles.skillsContainer}>
         <FlatList
@@ -46,8 +47,8 @@ export default function ActivitySkills({
           keyExtractor={(item) => item}
           horizontal
         />
-        <FlatList
-          data={skills}
+        {/* <FlatList
+          data={primarySkills}
           renderItem={({ item }) => (
             <View style={{ ...styles.skillTag, backgroundColor: "#FFEFE3" }}>
               <Text style={{ ...styles.skillText, color: "#3350E9" }}>
@@ -57,13 +58,15 @@ export default function ActivitySkills({
           )}
           keyExtractor={(item) => item}
           horizontal
-        />
+        /> */}
       </View>
       <TouchableOpacity style={styles.moreButton}>
         <Text style={styles.moreText}>View More Tags</Text>
         <CaretRight />
       </TouchableOpacity>
     </View>
+  ) : (
+    <ActivityIndicator />
   );
 }
 

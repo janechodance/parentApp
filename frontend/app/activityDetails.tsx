@@ -20,6 +20,7 @@ export default function ActivityDetails() {
   const [isInstructionsOpen, setIsInstructionsOpen] = useState(false);
   const [isModificationsOpen, setIsModificationsOpen] = useState(false);
   const [activity, setActivity] = useState<Activity>();
+
   useEffect(() => {
     axios
       .get("https://f017-37-19-220-197.ngrok-free.app/activity/1")
@@ -29,7 +30,7 @@ export default function ActivityDetails() {
         console.error(error);
       });
   }, []);
-  console.log(activity);
+
   return activity ? (
     <ScrollView
       style={styles.scrollView}
