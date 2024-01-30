@@ -16,10 +16,14 @@ export class Activity {
   expandable: boolean;
   @Column({ type: 'int', array: true })
   secondary_skills_ids: number[];
+  @Column({ type: 'text', array: true })
+  instructions: string[];
+  @Column({ type: 'text', array: true })
+  modifications: string[];
   @Column({ type: 'text' })
-  instructions: string;
-  @Column({ type: 'text' })
-  modifications: string;
+  material_description: string;
+  @Column({ type: 'text', array: true })
+  materials: string[];
   @Column({ type: 'varchar', length: 50 })
   posted_by: string;
   @Column({ type: 'varchar', length: 50 })

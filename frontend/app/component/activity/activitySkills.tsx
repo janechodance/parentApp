@@ -9,6 +9,8 @@ import {
 import CaretRight from "../../../assets/icons/caretRight.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import { Skill } from "../../customtypes/types";
 
 interface activitySkillsProps {
   primarySkillsIds: number[];
@@ -17,14 +19,28 @@ interface activitySkillsProps {
 
 export default function ActivitySkills({
   primarySkillsIds,
+  secondarySkillsIds,
 }: activitySkillsProps) {
-  const [skills, setSkills] = useState<string[]>([]);
+  const [skills, setSkills] = useState<Skill[]>([]);
   useEffect(() => {
     primarySkillsIds.map((id: number) => {
       axios
         .get(`https://f017-37-19-220-197.ngrok-free.app/skill/${id}`)
         .then((res) => {
-          skills.push(res.data.name);
+          skills.push({ name: res.data.name, primary: true });
+          skills.sort((b, a) => Number(a.primary) - Number(b.primary));
+          setSkills([...skills]);
+        })
+        .catch((error) => {
+          // Handle any errors that occur
+          console.error(error);
+        });
+    });
+    secondarySkillsIds.map((id: number) => {
+      axios
+        .get(`https://f017-37-19-220-197.ngrok-free.app/skill/${id}`)
+        .then((res) => {
+          skills.push({ name: res.data.name, primary: false });
           setSkills([...skills]);
         })
         .catch((error) => {
@@ -33,32 +49,34 @@ export default function ActivitySkills({
         });
     });
   }, []);
-  console.log(skills);
   return skills.length !== 0 ? (
-    <View style={styles.container}>
+    <View>
       <View style={styles.skillsContainer}>
         <FlatList
           data={skills}
           renderItem={({ item }) => (
-            <View style={styles.skillTag}>
-              <Text style={styles.skillText}>{item}</Text>
-            </View>
-          )}
-          keyExtractor={(item) => item}
-          horizontal
-        />
-        {/* <FlatList
-          data={primarySkills}
-          renderItem={({ item }) => (
-            <View style={{ ...styles.skillTag, backgroundColor: "#FFEFE3" }}>
-              <Text style={{ ...styles.skillText, color: "#3350E9" }}>
-                {item}
+            <View
+              style={
+                item.primary
+                  ? styles.skillTag
+                  : { ...styles.skillTag, backgroundColor: "#FFEFE3" }
+              }
+            >
+              <Text
+                style={
+                  item.primary
+                    ? styles.skillText
+                    : { ...styles.skillText, color: "#3350E9" }
+                }
+              >
+                {item.name}
               </Text>
             </View>
           )}
-          keyExtractor={(item) => item}
+          keyExtractor={() => uuidv4()}
           horizontal
-        /> */}
+          contentContainerStyle={styles.listContents}
+        />
       </View>
       <TouchableOpacity style={styles.moreButton}>
         <Text style={styles.moreText}>View More Tags</Text>
@@ -71,7 +89,6 @@ export default function ActivitySkills({
 }
 
 const styles = StyleSheet.create({
-  container: {},
   header: {
     flexDirection: "row",
     alignItems: "center",
@@ -100,6 +117,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     height: 30,
   },
+  listContents: {
+    flexDirection: "row",
+    width: "100%",
+    flexWrap: "wrap",
+  },
   skillTag: {
     backgroundColor: "#DE8BF2",
     height: 30,
@@ -108,6 +130,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
+    marginVertical: 8,
   },
   skillText: {
     fontFamily: "Arimo-Regular",
@@ -116,7 +139,6 @@ const styles = StyleSheet.create({
   },
   skillsContainer: {
     justifyContent: "space-between",
-    height: 92,
   },
   moreButton: {
     flexDirection: "row",

@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     lineHeight: 30,
   },
   text: {
-    fontFamily: "Jost-Medium",
-    fontSize: 20,
+    fontFamily: "Arimo-Regular",
+    fontSize: 16,
     lineHeight: 30,
   },
 });

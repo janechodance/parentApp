@@ -65,7 +65,12 @@ export default function ActivityDetails() {
             setIsOpen={setIsMaterialsOpen}
           />
 
-          {isMaterialsOpen ? <ActivityMaterials /> : null}
+          {isMaterialsOpen ? (
+            <ActivityMaterials
+              materialDescription={activity.material_description}
+              materials={activity.materials}
+            />
+          ) : null}
         </View>
         <View style={styles.accordion}>
           <Accordion
@@ -73,7 +78,9 @@ export default function ActivityDetails() {
             isOpen={isInstructionsOpen}
             setIsOpen={setIsInstructionsOpen}
           />
-          {isInstructionsOpen ? <ActivityInstructions /> : null}
+          {isInstructionsOpen ? (
+            <ActivityInstructions instructions={activity.instructions} />
+          ) : null}
         </View>
         <View style={styles.accordion}>
           <Accordion
@@ -81,7 +88,9 @@ export default function ActivityDetails() {
             isOpen={isModificationsOpen}
             setIsOpen={setIsModificationsOpen}
           />
-          {isModificationsOpen ? <ActivityModifications /> : null}
+          {isModificationsOpen ? (
+            <ActivityModifications modifications={activity.modifications} />
+          ) : null}
         </View>
         <ActivityCredit />
         <View style={styles.footer}>

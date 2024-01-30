@@ -2,24 +2,21 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
 
-export default function ActivityMaterials() {
-  const items = [
-    "Crayons or Markers",
-    "Pom Poms, Feathers, Buttons",
-    "Blocks",
-    "Socks or Clothing Items",
-    "Books",
-    "AAC device (optional)",
-  ];
+interface activityMaterialsProp {
+  materialDescription: string;
+  materials: string[];
+}
+
+export default function ActivityMaterials({
+  materialDescription,
+  materials,
+}: activityMaterialsProp) {
   return (
     <View style={styles.container}>
-      <Text style={styles.description}>
-        To do this activity, you need items with solid colors. The items below
-        are examples of items you can use.
-      </Text>
+      <Text style={styles.description}>{materialDescription}</Text>
       <FlatList
         key={uuidv4()}
-        data={items}
+        data={materials}
         renderItem={({ item }) => (
           <Text style={styles.itemText}>{`\u2022 ${item}`}</Text>
         )}
