@@ -5,12 +5,24 @@ import ActivitySteps from "./activitySteps";
 
 interface activityInstructionsProp {
   instructions: string[];
+  detailPage?: boolean;
 }
 export default function ActivityInstructions({
   instructions,
+  detailPage,
 }: activityInstructionsProp) {
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        detailPage
+          ? {
+              ...styles.container,
+              borderBottomColor: "#D1D1D1",
+              borderBottomWidth: 1,
+            }
+          : styles.container
+      }
+    >
       <FlatList
         key={uuidv4()}
         data={instructions}
@@ -32,11 +44,9 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   stepContainer: {
-    marginTop: 42,
+    marginTop: 56,
   },
   container: {
-    borderBottomColor: "#D1D1D1",
-    borderBottomWidth: 1,
-    paddingBottom: 8,
+    paddingBottom: 36,
   },
 });

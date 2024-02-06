@@ -1,32 +1,49 @@
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import HeaderWithNotes from "./component/header/headerWithNotes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
 import ActivityMaterials from "./component/activity/activityMaterials";
 import { ScrollView } from "react-native-gesture-handler";
 import ActivityInstructions from "./component/activity/activityInstructions";
 import ActivityImages from "./component/activity/activiyImages";
+import axios from "axios";
+import { Activity } from "./customtypes/types";
 
 export default function StartActivity() {
+  const [activity, setActivity] = useState<Activity>();
+  useEffect(() => {
+    axios
+      .get("https://9d86-148-74-83-32.ngrok-free.app/activity/1")
+      .then((res) => setActivity(res.data))
+      .catch((error) => {
+        // Handle any errors that occur
+        console.error(error);
+      });
+  }, []);
   const [tabSelected, setTabSelected] = useState("materials");
   const renderContent = (param: string) => {
     switch (param) {
       case "materials":
-        return <ActivityMaterials />;
+        return (
+          <ActivityMaterials
+            materialDescription={activity!.material_description}
+            materials={activity!.materials}
+          />
+        );
       case "instructions":
-        return <ActivityInstructions />;
+        return <ActivityInstructions instructions={activity!.instructions} />;
       default:
         return <ActivityImages />;
     }
   };
-  return (
+  return activity ? (
     <ScrollView
       style={styles.background}
       contentContainerStyle={{ alignItems: "center" }}
     >
       <View style={styles.container}>
         <HeaderWithNotes />
-        <Text style={styles.headerText}>Color Sorting</Text>
+        <Text style={styles.headerText}>{activity.name}</Text>
         <View style={styles.tabContainer}>
           <TouchableOpacity
             style={
@@ -75,9 +92,7 @@ export default function StartActivity() {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.contentContainer}>
-          {renderContent(tabSelected)}
-        </View>
+        <View>{renderContent(tabSelected)}</View>
 
         <View style={styles.footer}>
           <OneButtonFooter
@@ -87,7 +102,7 @@ export default function StartActivity() {
         </View>
       </View>
     </ScrollView>
-  );
+  ) : null;
 }
 
 const styles = StyleSheet.create({
@@ -126,9 +141,9 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     color: "#122AA5",
   },
-  contentContainer: {
-    marginTop: 70,
-  },
+  // contentContainer: {
+  //   marginTop: 70,
+  // },
   footer: {
     marginTop: 36,
     marginBottom: 70,

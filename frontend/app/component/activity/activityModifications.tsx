@@ -9,12 +9,6 @@ interface activityModificationsProp {
 export default function ActivityModifications({
   modifications,
 }: activityModificationsProp) {
-  // const modifications = [
-  //   "Start the activity with 2 options (red and blue or big and small) but to make the activity more challenging, add additional categories or increase the amount and types of objects they are sorting",
-  //   "For more fine motor practice, have your child use tweezers to pick up and place items into categories",
-  //   "To practice social play, have children pass items and take turns to practice waiting, sharing, and praising each other.",
-  //   "Remember, it is helpful to verbally say colors and other short phrases like “more” “same” and “all done” to model communication and vocabulary. You can also do this on your child’s AAC device if applicable or have them find the color or item they are sorting that day.",
-  // ];
   return (
     <View style={styles.container}>
       <FlatList
@@ -31,15 +25,14 @@ export default function ActivityModifications({
 const styles = StyleSheet.create({
   container: {
     marginTop: 56,
-    padding: 16,
     borderBottomColor: "#D1D1D1",
     borderBottomWidth: 1,
     paddingBottom: 8,
   },
   itemText: {
     fontFamily: "Arimo-Regular",
-    fontSize: 14,
-    lineHeight: 21,
+    fontSize: 16,
+    lineHeight: 24,
     marginBottom: 28,
   },
 });

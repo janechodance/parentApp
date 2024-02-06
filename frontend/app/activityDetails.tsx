@@ -23,7 +23,7 @@ export default function ActivityDetails() {
 
   useEffect(() => {
     axios
-      .get("https://f017-37-19-220-197.ngrok-free.app/activity/1")
+      .get("https://9d86-148-74-83-32.ngrok-free.app/activity/1")
       .then((res) => setActivity(res.data))
       .catch((error) => {
         // Handle any errors that occur
@@ -69,6 +69,7 @@ export default function ActivityDetails() {
             <ActivityMaterials
               materialDescription={activity.material_description}
               materials={activity.materials}
+              detailPage
             />
           ) : null}
         </View>
@@ -79,7 +80,10 @@ export default function ActivityDetails() {
             setIsOpen={setIsInstructionsOpen}
           />
           {isInstructionsOpen ? (
-            <ActivityInstructions instructions={activity.instructions} />
+            <ActivityInstructions
+              instructions={activity.instructions}
+              detailPage
+            />
           ) : null}
         </View>
         <View style={styles.accordion}>

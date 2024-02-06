@@ -5,14 +5,26 @@ import { v4 as uuidv4 } from "uuid";
 interface activityMaterialsProp {
   materialDescription: string;
   materials: string[];
+  detailPage?: boolean;
 }
 
 export default function ActivityMaterials({
   materialDescription,
   materials,
+  detailPage,
 }: activityMaterialsProp) {
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        detailPage
+          ? {
+              ...styles.container,
+              borderBottomColor: "#D1D1D1",
+              borderBottomWidth: 1,
+            }
+          : styles.container
+      }
+    >
       <Text style={styles.description}>{materialDescription}</Text>
       <FlatList
         key={uuidv4()}
@@ -27,9 +39,8 @@ export default function ActivityMaterials({
 }
 const styles = StyleSheet.create({
   container: {
-    borderBottomColor: "#D1D1D1",
-    borderBottomWidth: 1,
-    paddingBottom: 8,
+    marginTop: 56,
+    paddingBottom: 36,
   },
   header: {
     fontFamily: "Jost-Medium",

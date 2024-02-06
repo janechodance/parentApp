@@ -33,7 +33,7 @@ export default function ActivityHeader({
             {active_time} minutes
           </Text>
         </View>
-        <Text style={styles.timeText}>{description}</Text>
+        <Text style={{ ...styles.timeText, marginTop: 20 }}>{description}</Text>
       </View>
     </View>
   );
