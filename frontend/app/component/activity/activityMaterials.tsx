@@ -25,7 +25,9 @@ export default function ActivityMaterials({
           : styles.container
       }
     >
-      <Text style={styles.description}>{materialDescription}</Text>
+      {materialDescription ? (
+        <Text style={styles.description}>{materialDescription}</Text>
+      ) : null}
       <FlatList
         key={uuidv4()}
         data={materials}

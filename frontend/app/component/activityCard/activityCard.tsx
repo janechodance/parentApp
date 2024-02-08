@@ -2,14 +2,20 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import TwoButtonFooter from "../footer/twoButtonFooter";
 import DottedCircle from "../../../assets/background/dottedCircle.svg";
+import ActivitySkills from "../activity/activitySkills";
 
-export default function ActivityCard() {
-  const skills = [
-    "Cognitive Skills",
-    "Fine Motor Skills",
-    "Gross Motor Skills",
-    "Communication",
-  ];
+interface activityCardProps {
+  name: string;
+  description: string;
+  primarySkillsIds: number[];
+  secondarySkillsIds: number[];
+}
+export default function ActivityCard({
+  name,
+  description,
+  primarySkillsIds,
+  secondarySkillsIds,
+}: activityCardProps) {
   return (
     <View style={styles.container}>
       <View style={styles.background}>
@@ -22,23 +28,13 @@ export default function ActivityCard() {
         </View>
       </View>
       <View style={styles.detailContainer}>
-        <FlatList
-          data={skills}
-          renderItem={({ item }) => (
-            <View style={styles.skillTag}>
-              <Text style={styles.skillText}>{item}</Text>
-            </View>
-          )}
-          keyExtractor={(item) => item}
-          horizontal
+        <ActivitySkills
+          primarySkillsIds={primarySkillsIds}
+          secondarySkillsIds={secondarySkillsIds}
+          activityCard
         />
-        <Text style={styles.activityHeader}>Activity Name</Text>
-        <Text style={styles.skillText}>
-          Lorem ipsum dolor sit amet consectetur. Lacus ultrices duis fermentum
-          ornare. Condimentum amet rutrum viverra fermentum orci. Lobortis
-          molestie nulla varius tempus pretium pharetra id. Nunc congue arcu
-          ipsum tincidunt et accumsan.
-        </Text>
+        <Text style={styles.activityHeader}>{name}</Text>
+        <Text style={styles.skillText}>{description}</Text>
       </View>
       <View style={styles.footer}>
         <TwoButtonFooter

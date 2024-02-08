@@ -10,9 +10,22 @@ import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
 import ArrowLeft from "../assets/icons/arrowLeft.svg";
 import Caret from "../assets/icons/caret.svg";
+import { useEffect, useState } from "react";
+import { Activity } from "./customtypes/types";
+import axios from "axios";
 
 export default function ActivityResults() {
-  const activities = [1, 2, 3, 4, 5];
+  const [activities, setActivities] = useState<Activity[]>();
+  useEffect(() => {
+    axios
+      .get("https://9d86-148-74-83-32.ngrok-free.app/activity")
+      .then((res) => setActivities(res.data))
+      .catch((error) => {
+        // Handle any errors that occur
+        console.error(error);
+      });
+  }, []);
+
   return (
     <ScrollView
       style={styles.scrollView}
@@ -27,7 +40,14 @@ export default function ActivityResults() {
         </View>
         <FlatList
           data={activities}
-          renderItem={({ item }) => <ActivityCard />}
+          renderItem={({ item }) => (
+            <ActivityCard
+              name={item.name}
+              description={item.description}
+              primarySkillsIds={item.primary_skills_ids}
+              secondarySkillsIds={item.secondary_skills_ids}
+            />
+          )}
           key={uuidv4()}
           scrollEnabled={false}
         />

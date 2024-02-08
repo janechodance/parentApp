@@ -13,7 +13,7 @@ export default function StartActivity() {
   const [activity, setActivity] = useState<Activity>();
   useEffect(() => {
     axios
-      .get("https://9d86-148-74-83-32.ngrok-free.app/activity/1")
+      .get("https://9d86-148-74-83-32.ngrok-free.app/activity/3")
       .then((res) => setActivity(res.data))
       .catch((error) => {
         // Handle any errors that occur

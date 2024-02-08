@@ -15,11 +15,13 @@ import { Skill } from "../../customtypes/types";
 interface activitySkillsProps {
   primarySkillsIds: number[];
   secondarySkillsIds: number[];
+  activityCard?: boolean;
 }
 
 export default function ActivitySkills({
   primarySkillsIds,
   secondarySkillsIds,
+  activityCard,
 }: activitySkillsProps) {
   const [skills, setSkills] = useState<Skill[]>([]);
   useEffect(() => {
@@ -78,10 +80,12 @@ export default function ActivitySkills({
           contentContainerStyle={styles.listContents}
         />
       </View>
-      <TouchableOpacity style={styles.moreButton}>
-        <Text style={styles.moreText}>View More Tags</Text>
-        <CaretRight />
-      </TouchableOpacity>
+      {activityCard ? null : (
+        <TouchableOpacity style={styles.moreButton}>
+          <Text style={styles.moreText}>View More Tags</Text>
+          <CaretRight />
+        </TouchableOpacity>
+      )}
     </View>
   ) : (
     <ActivityIndicator />
