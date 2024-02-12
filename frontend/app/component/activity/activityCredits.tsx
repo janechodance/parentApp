@@ -1,10 +1,19 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function ActivityCredit() {
+interface activityCreditsProps {
+  postedBy: string;
+  reviewedBy: string;
+}
+
+export default function ActivityCredit({
+  postedBy,
+  reviewedBy,
+}: activityCreditsProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
-        Posted by Sarah, caregiver {"\n"}Reviewed by Tim, occupational therapist
+        Posted by {postedBy} {"\n"}
+        Reviewed by {reviewedBy}
       </Text>
     </View>
   );

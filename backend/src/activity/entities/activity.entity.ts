@@ -20,7 +20,7 @@ export class Activity {
   instructions: string[];
   @Column({ type: 'text', array: true })
   modifications: string[];
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   material_description: string;
   @Column({ type: 'text', array: true })
   materials: string[];

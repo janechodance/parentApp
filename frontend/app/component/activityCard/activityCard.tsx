@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, Image } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
 import TwoButtonFooter from "../footer/twoButtonFooter";
 import DottedCircle from "../../../assets/background/dottedCircle.svg";
 import ActivitySkills from "../activity/activitySkills";
@@ -53,7 +52,6 @@ export default function ActivityCard({
 const styles = StyleSheet.create({
   container: {
     width: 338,
-    height: 406,
     borderRadius: 8,
     marginBottom: 32,
     backgroundColor: "#FFFCFC",

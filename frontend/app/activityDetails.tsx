@@ -1,4 +1,3 @@
-import { router } from "expo-router";
 import { View, StyleSheet, Image, ScrollView } from "react-native";
 import ActivityHeader from "./component/activity/activityHeader";
 import ActivityHistory from "./component/activity/activityHistory";
@@ -96,7 +95,10 @@ export default function ActivityDetails() {
             <ActivityModifications modifications={activity.modifications} />
           ) : null}
         </View>
-        <ActivityCredit />
+        <ActivityCredit
+          postedBy={activity.posted_by}
+          reviewedBy={activity.reviewed_by}
+        />
         <View style={styles.footer}>
           <TwoButtonFooter
             height={48}
