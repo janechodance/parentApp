@@ -8,6 +8,7 @@ interface twoButtonFooterProps {
   buttonRightText: string;
   buttonLeftTo: string;
   buttonRightTo: string;
+  onPress?: () => void;
 }
 export default function TwoButtonFooter({
   height,
@@ -16,12 +17,16 @@ export default function TwoButtonFooter({
   buttonRightText,
   buttonLeftTo,
   buttonRightTo,
+  onPress,
 }: twoButtonFooterProps) {
   return (
     <View style={styles.footerContainer}>
       <TouchableOpacity
         style={{ ...styles.button, height: height, width: width }}
-        onPress={() => router.push(buttonLeftTo)}
+        onPress={() => {
+          router.push(buttonLeftTo);
+          onPress!();
+        }}
       >
         <Text style={styles.buttonText}>{buttonLeftText}</Text>
       </TouchableOpacity>
@@ -32,7 +37,10 @@ export default function TwoButtonFooter({
           height: height,
           width: width,
         }}
-        onPress={() => router.push(buttonRightTo)}
+        onPress={() => {
+          router.push(buttonRightTo);
+          onPress!();
+        }}
       >
         <Text style={{ ...styles.buttonText, color: "#FFFFFF" }}>
           {buttonRightText}

@@ -14,6 +14,7 @@ import Triangles from "../assets/background/triangles.svg";
 import Circles from "../assets/background/circles.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ActivityProvider } from "./context/activityContext";
 
 export default function App() {
   const [user, setUser] = useState("");
@@ -27,114 +28,116 @@ export default function App() {
       });
   }, []);
   return (
-    <ScrollView
-      style={styles.scrollView}
-      contentContainerStyle={{ alignItems: "center" }}
-    >
-      <View style={styles.container}>
-        <View
-          style={{
-            position: "absolute",
-            top: 50,
-            left: 90,
-            zIndex: -1,
-          }}
-        >
-          <Circles />
-        </View>
-        <View style={styles.welcomeScreen}>
-          <Text style={styles.welcomeText}>Welcome Back, {user}!</Text>
-          <Image
-            style={styles.welcomeImage}
-            source={require("../assets/background/homepageImage.png")}
-          />
-          <Text style={styles.welcomeDescriptionText}>
-            We want to meet you where you're at and can help pick an activity
-            just for you!
-          </Text>
-          <TouchableOpacity
-            onPress={() => router.push("/clientSurvey")}
-            style={styles.welcomeButton}
+    <ActivityProvider>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={{ alignItems: "center" }}
+      >
+        <View style={styles.container}>
+          <View
+            style={{
+              position: "absolute",
+              top: 50,
+              left: 90,
+              zIndex: -1,
+            }}
           >
-            <Text style={styles.welcomeButtonText}>My Activity Finder</Text>
-          </TouchableOpacity>
+            <Circles />
+          </View>
+          <View style={styles.welcomeScreen}>
+            <Text style={styles.welcomeText}>Welcome Back, {user}!</Text>
+            <Image
+              style={styles.welcomeImage}
+              source={require("../assets/background/homepageImage.png")}
+            />
+            <Text style={styles.welcomeDescriptionText}>
+              We want to meet you where you're at and can help pick an activity
+              just for you!
+            </Text>
+            <TouchableOpacity
+              onPress={() => router.push("/clientSurvey")}
+              style={styles.welcomeButton}
+            >
+              <Text style={styles.welcomeButtonText}>My Activity Finder</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.sectionContainer}>
+            <WeekReview />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              top: 550,
+              left: -22,
+              zIndex: -1,
+            }}
+          >
+            <Triangles />
+          </View>
+          <View style={styles.sectionContainer}>
+            <ActivityCarousel header="Recent Activities" />
+          </View>
+          <View style={styles.sectionContainer}>
+            <EnergyLevel />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              top: 1600,
+              right: -22,
+              zIndex: -1,
+            }}
+          >
+            <Paint />
+          </View>
+          <View style={styles.sectionContainer}>
+            <Catergories />
+          </View>
+          <View style={styles.sectionContainer}>
+            <Quote />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              top: 2450,
+              right: -22,
+              zIndex: -1,
+            }}
+          >
+            <Diamonds />
+          </View>
+          <View style={styles.sectionContainer}>
+            <ActivityCarousel header="Popular Activities" />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              top: 3100,
+              right: -22,
+              zIndex: -1,
+            }}
+          >
+            <Halfsun />
+          </View>
+          <View style={styles.sectionContainer}>
+            <ActivityCarousel header="Try Again!" />
+          </View>
+          <View
+            style={{
+              position: "absolute",
+              top: 3590,
+              left: -22,
+              zIndex: -1,
+            }}
+          >
+            <Vector />
+          </View>
+          <View style={styles.sectionContainer}>
+            <ActivityCarousel header="Fun in the Sun" />
+          </View>
         </View>
-        <View style={styles.sectionContainer}>
-          <WeekReview />
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            top: 550,
-            left: -22,
-            zIndex: -1,
-          }}
-        >
-          <Triangles />
-        </View>
-        <View style={styles.sectionContainer}>
-          <ActivityCarousel header="Recent Activities" />
-        </View>
-        <View style={styles.sectionContainer}>
-          <EnergyLevel />
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            top: 1600,
-            right: -22,
-            zIndex: -1,
-          }}
-        >
-          <Paint />
-        </View>
-        <View style={styles.sectionContainer}>
-          <Catergories />
-        </View>
-        <View style={styles.sectionContainer}>
-          <Quote />
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            top: 2450,
-            right: -22,
-            zIndex: -1,
-          }}
-        >
-          <Diamonds />
-        </View>
-        <View style={styles.sectionContainer}>
-          <ActivityCarousel header="Popular Activities" />
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            top: 3100,
-            right: -22,
-            zIndex: -1,
-          }}
-        >
-          <Halfsun />
-        </View>
-        <View style={styles.sectionContainer}>
-          <ActivityCarousel header="Try Again!" />
-        </View>
-        <View
-          style={{
-            position: "absolute",
-            top: 3590,
-            left: -22,
-            zIndex: -1,
-          }}
-        >
-          <Vector />
-        </View>
-        <View style={styles.sectionContainer}>
-          <ActivityCarousel header="Fun in the Sun" />
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </ActivityProvider>
   );
 }
 
