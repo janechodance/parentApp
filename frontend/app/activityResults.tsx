@@ -13,7 +13,6 @@ import Caret from "../assets/icons/caret.svg";
 import { useEffect, useState } from "react";
 import { Activity } from "./customtypes/types";
 import axios from "axios";
-import { ActivityProvider } from "./context/activityContext";
 
 export default function ActivityResults() {
   const [activities, setActivities] = useState<Activity[]>();
@@ -28,39 +27,37 @@ export default function ActivityResults() {
   }, []);
 
   return (
-    <ActivityProvider>
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={{ alignItems: "center" }}
-      >
-        <View style={styles.container}>
-          <View style={styles.firstScreen}>
-            <TouchableOpacity onPress={() => router.push("./clientSurvey")}>
-              <ArrowLeft />
-            </TouchableOpacity>
-            <Text style={styles.headerText}>Some Options for YOU!</Text>
-          </View>
-          <FlatList
-            data={activities}
-            renderItem={({ item }) => (
-              <ActivityCard
-                activity={item}
-                name={item.name}
-                description={item.description}
-                primarySkillsIds={item.primary_skills_ids}
-                secondarySkillsIds={item.secondary_skills_ids}
-              />
-            )}
-            key={uuidv4()}
-            scrollEnabled={false}
-          />
-          <View style={styles.moreButton}>
-            <Text style={styles.moreText}>View More</Text>
-            <Caret />
-          </View>
+    <ScrollView
+      style={styles.scrollView}
+      contentContainerStyle={{ alignItems: "center" }}
+    >
+      <View style={styles.container}>
+        <View style={styles.firstScreen}>
+          <TouchableOpacity onPress={() => router.push("./clientSurvey")}>
+            <ArrowLeft />
+          </TouchableOpacity>
+          <Text style={styles.headerText}>Some Options for YOU!</Text>
         </View>
-      </ScrollView>
-    </ActivityProvider>
+        <FlatList
+          data={activities}
+          renderItem={({ item }) => (
+            <ActivityCard
+              activity={item}
+              name={item.name}
+              description={item.description}
+              primarySkillsIds={item.primary_skills_ids}
+              secondarySkillsIds={item.secondary_skills_ids}
+            />
+          )}
+          key={uuidv4()}
+          scrollEnabled={false}
+        />
+        <View style={styles.moreButton}>
+          <Text style={styles.moreText}>View More</Text>
+          <Caret />
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({

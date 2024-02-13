@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import TwoButtonFooter from "../footer/twoButtonFooter";
 import DottedCircle from "../../../assets/background/dottedCircle.svg";
 import ActivitySkills from "../activity/activitySkills";
-import { useActivity } from "../../context/activityContext";
 import { Activity } from "../../customtypes/types";
 
 interface activityCardProps {
@@ -19,7 +18,6 @@ export default function ActivityCard({
   primarySkillsIds,
   secondarySkillsIds,
 }: activityCardProps) {
-  const { setActivity } = useActivity();
   return (
     <View style={styles.container}>
       <View style={styles.background}>
@@ -48,7 +46,7 @@ export default function ActivityCard({
           buttonRightText="Start Activity"
           buttonLeftTo="/activityDetails"
           buttonRightTo="/startActivity"
-          onPress={() => setActivity(activity)}
+          activityId={activity.id}
         />
       </View>
     </View>

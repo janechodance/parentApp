@@ -8,12 +8,15 @@ import ActivityInstructions from "./component/activity/activityInstructions";
 import ActivityImages from "./component/activity/activiyImages";
 import axios from "axios";
 import { Activity } from "./customtypes/types";
+import { useGlobalSearchParams } from "expo-router";
 
 export default function StartActivity() {
+  const { activityId } = useGlobalSearchParams();
   const [activity, setActivity] = useState<Activity>();
+
   useEffect(() => {
     axios
-      .get("https://9d86-148-74-83-32.ngrok-free.app/activity/3")
+      .get(`https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`)
       .then((res) => setActivity(res.data))
       .catch((error) => {
         // Handle any errors that occur
