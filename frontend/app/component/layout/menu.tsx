@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, TextInput } from "react-native";
 import {
   Menu,
   MenuOption,
@@ -7,6 +7,8 @@ import {
 } from "react-native-popup-menu";
 import Hamburger from "../../../assets/icons/hamburger.svg";
 import { router } from "expo-router";
+import Search from "../../../assets/icons/Search.svg";
+import X from "../../../assets/icons/x.svg";
 
 export default function HamburgerMenu() {
   return (
@@ -18,7 +20,23 @@ export default function HamburgerMenu() {
         optionsContainerStyle={styles.optionContainer}
         customStyles={{ optionText: styles.optionText }}
       >
-        <MenuOption text="search" style={styles.optionStyle}></MenuOption>
+        <MenuOption
+          style={{
+            ...styles.optionStyle,
+            backgroundColor: "#ECEFFF",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.searchBox}>
+            <Search />
+            <TextInput
+              style={styles.textInput}
+              placeholder="Search"
+            ></TextInput>
+            <X />
+          </View>
+        </MenuOption>
         <MenuOption
           onSelect={() => router.push("/")}
           text="My Activity Finder"
@@ -60,7 +78,7 @@ export default function HamburgerMenu() {
 }
 const styles = StyleSheet.create({
   optionContainer: {
-    marginTop: 30,
+    marginTop: 34,
     width: 360,
     height: 604,
   },
@@ -75,5 +93,22 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     paddingLeft: 26,
     justifyContent: "center",
+  },
+  searchBox: {
+    width: 330,
+    height: 48,
+    borderColor: "#CBD0D7",
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: "#FFFFFF",
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 12,
+  },
+  textInput: {
+    width: 250,
+    marginLeft: 8,
+    fontSize: 16,
+    color: "#5D5D5D",
   },
 });
