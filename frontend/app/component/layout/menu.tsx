@@ -24,8 +24,7 @@ export default function HamburgerMenu() {
           style={{
             ...styles.optionStyle,
             backgroundColor: "#ECEFFF",
-            display: "flex",
-            alignItems: "center",
+            paddingLeft: 15,
           }}
         >
           <View style={styles.searchBox}>
