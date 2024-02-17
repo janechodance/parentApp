@@ -9,11 +9,14 @@ import Hamburger from "../../../assets/icons/hamburger.svg";
 import { router } from "expo-router";
 import Search from "../../../assets/icons/Search.svg";
 import X from "../../../assets/icons/x.svg";
+import { useState } from "react";
 
 export default function HamburgerMenu() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <Menu>
-      <MenuTrigger>
+      <MenuTrigger onPress={() => setSearchTerm("")}>
         <Hamburger />
       </MenuTrigger>
       <MenuOptions
@@ -31,43 +34,66 @@ export default function HamburgerMenu() {
             <Search />
             <TextInput
               style={styles.textInput}
+              value={searchTerm}
+              onChangeText={setSearchTerm}
               placeholder="Search"
             ></TextInput>
-            <X />
+            <X onPress={() => setSearchTerm("")} />
           </View>
         </MenuOption>
         <MenuOption
-          onSelect={() => router.push("/")}
+          onSelect={() => {
+            router.push("/");
+            setSearchTerm("");
+          }}
           text="My Activity Finder"
           style={styles.optionStyle}
         />
         <MenuOption
-          onSelect={() => router.push("/explore")}
+          onSelect={() => {
+            router.push("/explore");
+            setSearchTerm("");
+          }}
           text="Explore"
           style={styles.optionStyle}
         />
         <MenuOption
-          onSelect={() => router.push("/progressLog")}
+          onSelect={() => {
+            router.push("/progressLog");
+            setSearchTerm("");
+          }}
           text="Progress Log"
           style={styles.optionStyle}
         />
         <MenuOption
-          onSelect={() => router.push("/calendar")}
+          onSelect={() => {
+            router.push("/calendar");
+            setSearchTerm("");
+          }}
           text="Calendar"
           style={styles.optionStyle}
         />
         <MenuOption
-          onSelect={() => router.push("/alerts")}
+          onSelect={() => {
+            router.push("/alerts");
+            setSearchTerm("");
+          }}
           text="Reminders"
           style={styles.optionStyle}
         />
         <MenuOption
-          onSelect={() => router.push("/profile")}
+          onSelect={() => {
+            router.push("/profile");
+            setSearchTerm("");
+          }}
           text="Profile"
           style={styles.optionStyle}
         />
         <MenuOption
-          onSelect={() => router.push("/settings")}
+          onSelect={() => {
+            router.push("/settings");
+            setSearchTerm("");
+          }}
           text="Settings"
           style={styles.optionStyle}
         />
