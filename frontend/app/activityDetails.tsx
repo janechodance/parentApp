@@ -107,7 +107,7 @@ export default function ActivityDetails() {
             width={164}
             buttonLeftText="Track Progress"
             buttonRightText="Start Activity"
-            buttonLeftTo="/activityDetails"
+            buttonLeftTo="/feedbackSurvey"
             buttonRightTo="/startActivity"
             activityId={activity.id}
           />

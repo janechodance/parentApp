@@ -101,6 +101,7 @@ export default function StartActivity() {
           <OneButtonFooter
             buttonText="Track Progress"
             buttonTo="../feedbackSurvey"
+            activityId={activity.id}
           />
         </View>
       </View>

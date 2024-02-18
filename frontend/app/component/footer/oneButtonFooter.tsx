@@ -1,23 +1,29 @@
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 interface oneButtonFooterProps {
   buttonText: string;
   buttonTo: string;
+  activityId?: number;
 }
 export default function OneButtonFooter({
   buttonText,
   buttonTo,
+  activityId,
 }: oneButtonFooterProps) {
   return (
-    <View style={styles.footerContainer}>
-      <TouchableOpacity
-        onPress={() => router.push(buttonTo)}
-        style={styles.submitButton}
-      >
-        <Text style={styles.text}>{buttonText}</Text>
-      </TouchableOpacity>
-    </View>
+    <Link
+      href={{
+        pathname: buttonTo,
+        params: { activityId: activityId },
+      }}
+    >
+      <View style={styles.footerContainer}>
+        <View style={styles.submitButton}>
+          <Text style={styles.text}>{buttonText}</Text>
+        </View>
+      </View>
+    </Link>
   );
 }
 

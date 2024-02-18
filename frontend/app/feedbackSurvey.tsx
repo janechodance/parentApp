@@ -9,9 +9,12 @@ import TextAnswer from "./component/survey/textAnswer";
 import ImageUpload from "./component/survey/imageUpload";
 import NotificationBlack from "../assets/icons/notificationBlack.svg";
 import ScaleAnswer from "./component/survey/scaleAnswer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PlusCircle from "../assets/icons/plusCircle.svg";
 import CheckboxCollection from "./component/survey/checkboxCollection";
+import { useGlobalSearchParams } from "expo-router";
+import { Activity } from "./customtypes/types";
+import axios from "axios";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -27,22 +30,24 @@ export default function FeedbackSurvey() {
     "15-25 minutes",
     "30+ minutes",
   ];
-  const materialsOptions = [
-    "Crayons or Markers",
-    "Pom Poms, Feathers, Buttons",
-    "Blocks",
-    "Socks or Clothing Items",
-    "Books",
-    "AAC device",
-    "Other",
-  ];
   const [starRating, setStarRating] = useState(0);
   const [again, setAgain] = useState("");
   const [complete, setComplete] = useState("");
   const [timeSelected, setTimeSelected] = useState(-1);
   const [challengeSelected, setChallengeSelected] = useState<number[] | []>([]);
   const [materialSelected, setMaterialSelected] = useState<number[] | []>([]);
+  const { activityId } = useGlobalSearchParams();
+  const [activity, setActivity] = useState<Activity>();
 
+  useEffect(() => {
+    axios
+      .get(`https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`)
+      .then((res) => setActivity(res.data))
+      .catch((error) => {
+        // Handle any errors that occur
+        console.error(error);
+      });
+  }, []);
   return (
     <ScrollView
       style={styles.background}
@@ -143,7 +148,7 @@ export default function FeedbackSurvey() {
             question="What materials did you use during the color sorting activity?"
             answer={
               <CheckboxCollection
-                options={materialsOptions}
+                options={activity!.materials}
                 optionsSelected={materialSelected}
                 setOptionsSelected={setMaterialSelected}
               />
