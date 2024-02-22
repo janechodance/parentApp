@@ -1,28 +1,32 @@
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import HeaderWithNotes from "./component/header/headerWithNotes";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
 import ActivityMaterials from "./component/activity/activityMaterials";
 import { ScrollView } from "react-native-gesture-handler";
 import ActivityInstructions from "./component/activity/activityInstructions";
 import ActivityImages from "./component/activity/activiyImages";
 import axios from "axios";
-import { Activity } from "./customtypes/types";
 import { useGlobalSearchParams } from "expo-router";
+import { useQuery } from "@tanstack/react-query";
 
 export default function StartActivity() {
   const { activityId } = useGlobalSearchParams();
-  const [activity, setActivity] = useState<Activity>();
+  const getActivity = async () => {
+    const response = await axios.get(
+      `https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`
+    );
+    return response.data;
+  };
+  const {
+    isLoading,
+    data: activity,
+    error,
+  } = useQuery({
+    queryKey: ["activity", activityId],
+    queryFn: getActivity,
+  });
 
-  useEffect(() => {
-    axios
-      .get(`https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`)
-      .then((res) => setActivity(res.data))
-      .catch((error) => {
-        // Handle any errors that occur
-        console.error(error);
-      });
-  }, []);
   const [tabSelected, setTabSelected] = useState("materials");
   const renderContent = (param: string) => {
     switch (param) {
@@ -39,7 +43,7 @@ export default function StartActivity() {
         return <ActivityImages />;
     }
   };
-  return activity ? (
+  return !isLoading ? (
     <ScrollView
       style={styles.background}
       contentContainerStyle={{ alignItems: "center" }}

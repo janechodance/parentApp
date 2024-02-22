@@ -2,7 +2,7 @@ import { View, StyleSheet, Image, ScrollView } from "react-native";
 import ActivityHeader from "./component/activity/activityHeader";
 import ActivityHistory from "./component/activity/activityHistory";
 import Accordion from "./component/activity/accordion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ActivityMaterials from "./component/activity/activityMaterials";
 import ActivityInstructions from "./component/activity/activityInstructions";
 import ActivityModifications from "./component/activity/activityModifications";
@@ -11,28 +11,31 @@ import TwoButtonFooter from "./component/footer/twoButtonFooter";
 import HeaderWithNotes from "./component/header/headerWithNotes";
 import Pagination from "../assets/icons/pagination.svg";
 import axios from "axios";
-import { Activity } from "./customtypes/types";
 import ActivitySkills from "./component/activity/activitySkills";
 import { useGlobalSearchParams } from "expo-router";
+import { useQuery } from "@tanstack/react-query";
 
 export default function ActivityDetails() {
   const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
   const [isInstructionsOpen, setIsInstructionsOpen] = useState(false);
   const [isModificationsOpen, setIsModificationsOpen] = useState(false);
   const { activityId } = useGlobalSearchParams();
-  const [activity, setActivity] = useState<Activity>();
+  const getActivity = async () => {
+    const response = await axios.get(
+      `https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`
+    );
+    return response.data;
+  };
+  const {
+    isLoading,
+    data: activity,
+    error,
+  } = useQuery({
+    queryKey: ["activity", activityId],
+    queryFn: getActivity,
+  });
 
-  useEffect(() => {
-    axios
-      .get(`https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`)
-      .then((res) => setActivity(res.data))
-      .catch((error) => {
-        // Handle any errors that occur
-        console.error(error);
-      });
-  }, []);
-
-  return activity ? (
+  return !isLoading ? (
     <ScrollView
       style={styles.scrollView}
       contentContainerStyle={{ alignItems: "center" }}
@@ -116,6 +119,7 @@ export default function ActivityDetails() {
     </ScrollView>
   ) : null;
 }
+
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,

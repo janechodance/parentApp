@@ -7,10 +7,11 @@ import { router } from "expo-router";
 import HamburgerMenu from "./component/layout/menu";
 import { MenuProvider } from "react-native-popup-menu";
 import BottomNavigation from "./component/layout/bottomNavigation";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);
-
+  const queryClient = new QueryClient();
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
@@ -31,27 +32,29 @@ export default function Layout() {
   }
 
   return (
-    <MenuProvider>
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: "#A920C9",
-          },
-          headerTitle: "",
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => router.push("/")}>
-              <Text style={styles.headerText}>ParentApp</Text>
-            </TouchableOpacity>
-          ),
-          headerRight: () => (
-            <View>
-              <HamburgerMenu />
-            </View>
-          ),
-        }}
-      />
-      <BottomNavigation />
-    </MenuProvider>
+    <QueryClientProvider client={queryClient}>
+      <MenuProvider>
+        <Stack
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#A920C9",
+            },
+            headerTitle: "",
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => router.push("/")}>
+                <Text style={styles.headerText}>ParentApp</Text>
+              </TouchableOpacity>
+            ),
+            headerRight: () => (
+              <View>
+                <HamburgerMenu />
+              </View>
+            ),
+          }}
+        />
+        <BottomNavigation />
+      </MenuProvider>
+    </QueryClientProvider>
   );
 }
 const styles = StyleSheet.create({

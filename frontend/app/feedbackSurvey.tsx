@@ -9,12 +9,12 @@ import TextAnswer from "./component/survey/textAnswer";
 import ImageUpload from "./component/survey/imageUpload";
 import NotificationBlack from "../assets/icons/notificationBlack.svg";
 import ScaleAnswer from "./component/survey/scaleAnswer";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PlusCircle from "../assets/icons/plusCircle.svg";
 import CheckboxCollection from "./component/survey/checkboxCollection";
 import { useGlobalSearchParams } from "expo-router";
-import { Activity } from "./customtypes/types";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -37,18 +37,21 @@ export default function FeedbackSurvey() {
   const [challengeSelected, setChallengeSelected] = useState<number[] | []>([]);
   const [materialSelected, setMaterialSelected] = useState<number[] | []>([]);
   const { activityId } = useGlobalSearchParams();
-  const [activity, setActivity] = useState<Activity>();
-
-  useEffect(() => {
-    axios
-      .get(`https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`)
-      .then((res) => setActivity(res.data))
-      .catch((error) => {
-        // Handle any errors that occur
-        console.error(error);
-      });
-  }, []);
-  return (
+  const getActivity = async () => {
+    const response = await axios.get(
+      `https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`
+    );
+    return response.data;
+  };
+  const {
+    isLoading,
+    data: activity,
+    error,
+  } = useQuery({
+    queryKey: ["activity", activityId],
+    queryFn: getActivity,
+  });
+  return !isLoading ? (
     <ScrollView
       style={styles.background}
       contentContainerStyle={{ alignItems: "center" }}
@@ -193,7 +196,7 @@ export default function FeedbackSurvey() {
         </View>
       </View>
     </ScrollView>
-  );
+  ) : null;
 }
 
 const styles = StyleSheet.create({
