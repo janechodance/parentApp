@@ -22,3 +22,20 @@ export interface Skill {
   name: string;
   primary: boolean;
 }
+
+export interface ActivityInstance {
+  id: number;
+  activity_id: number;
+  user_id: number;
+  would_repeat: boolean;
+  parent_rating: number;
+  complete: boolean;
+  child_rating: number;
+  difficulty: number;
+  challanges: string[];
+  time_spent: number;
+  materials_used: string[];
+  notes: string;
+  image: string[];
+  date: Date;
+}

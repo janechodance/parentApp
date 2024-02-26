@@ -32,6 +32,17 @@ export class ActivityInstanceController {
     return this.activityInstanceService.findOne(+id);
   }
 
+  @Get('/:activity_id/:user_id')
+  find(
+    @Param('activity_id') activity_id: number,
+    @Param('user_id') user_id: number,
+  ) {
+    return this.activityInstanceService.findInstancesByActivityAndUser(
+      activity_id,
+      user_id,
+    );
+  }
+
   @Patch(':id')
   update(
     @Param('id') id: string,

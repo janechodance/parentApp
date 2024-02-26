@@ -28,4 +28,6 @@ export class ActivityInstance {
   notes: string;
   @Column({ type: 'text', array: true, nullable: true })
   image: string[];
+  @Column({ type: 'date' })
+  date: Date;
 }

@@ -1,28 +1,30 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useGlobalSearchParams } from "expo-router";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { DataTable } from "react-native-paper";
+import { ActivityInstance } from "../../customtypes/types";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ActivityHistory() {
-  const items = [
-    {
-      key: 1,
-      dateTracked: "6/15/23",
-      duration: "10 minutes",
-      caregiver: "Max",
-    },
-    {
-      key: 2,
-      dateTracked: "4/6/23",
-      duration: "20 minutes",
-      caregiver: "Max and Tina",
-    },
-    {
-      key: 3,
-      dateTracked: "1/12/23",
-      duration: "15 minutes",
-      caregiver: "Max and Lee",
-    },
-  ];
-  return (
+  const { activityId } = useGlobalSearchParams();
+
+  const getActivityInstances = async () => {
+    const response = await axios.get(
+      `https://9d86-148-74-83-32.ngrok-free.app/activity_instance/${activityId}/1`
+    );
+    return response.data;
+  };
+  const {
+    isLoading,
+    data: activityInstances,
+    error,
+  } = useQuery({
+    queryKey: ["activityInstances", activityId, 1],
+    queryFn: getActivityInstances,
+  });
+
+  return !isLoading ? (
     <View style={styles.container}>
       <Text style={styles.headerText}>Activity History</Text>
       <DataTable style={styles.table}>
@@ -37,16 +39,16 @@ export default function ActivityHistory() {
             Caregiver(s)
           </DataTable.Title>
         </DataTable.Header>
-        {items.map((item) => (
-          <DataTable.Row style={styles.tableContent} key={item.key}>
+        {activityInstances.map((item: ActivityInstance) => (
+          <DataTable.Row style={styles.tableContent} key={uuidv4()}>
             <DataTable.Cell textStyle={styles.tableContentText}>
-              {item.dateTracked}
+              {item.date.toString()}
             </DataTable.Cell>
             <DataTable.Cell textStyle={styles.tableContentText}>
-              {item.duration}
+              {item.time_spent}
             </DataTable.Cell>
             <DataTable.Cell textStyle={styles.tableContentText}>
-              {item.caregiver}
+              null
             </DataTable.Cell>
           </DataTable.Row>
         ))}
@@ -55,7 +57,7 @@ export default function ActivityHistory() {
         <Text style={styles.moreText}>View Progress Log</Text>
       </TouchableOpacity>
     </View>
-  );
+  ) : null;
 }
 
 const styles = StyleSheet.create({

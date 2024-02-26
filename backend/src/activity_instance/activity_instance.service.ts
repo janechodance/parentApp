@@ -24,6 +24,10 @@ export class ActivityInstanceService {
     return this.activityInstanceRepository.findOneBy({ id });
   }
 
+  findInstancesByActivityAndUser(activity_id: number, user_id: number) {
+    return this.activityInstanceRepository.findBy({ activity_id, user_id });
+  }
+
   update(id: number, updateActivityInstanceDto: UpdateActivityInstanceDto) {
     return `This action updates a #${id} activityInstance`;
   }
