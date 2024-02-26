@@ -1,11 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ActivityInstanceService } from './activity_instance.service';
 import { CreateActivityInstanceDto } from './dto/create-activity_instance.dto';
 import { UpdateActivityInstanceDto } from './dto/update-activity_instance.dto';
 
-@Controller('activity-instance')
+@Controller('activity_instance')
 export class ActivityInstanceController {
-  constructor(private readonly activityInstanceService: ActivityInstanceService) {}
+  constructor(
+    private readonly activityInstanceService: ActivityInstanceService,
+  ) {}
 
   @Post()
   create(@Body() createActivityInstanceDto: CreateActivityInstanceDto) {
@@ -23,7 +33,10 @@ export class ActivityInstanceController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateActivityInstanceDto: UpdateActivityInstanceDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateActivityInstanceDto: UpdateActivityInstanceDto,
+  ) {
     return this.activityInstanceService.update(+id, updateActivityInstanceDto);
   }
 

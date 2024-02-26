@@ -9,6 +9,7 @@ import { Activity } from './activity/entities/activity.entity';
 import { SkillModule } from './skill/skill.module';
 import { Skill } from './skill/entities/skill.entity';
 import { ActivityInstanceModule } from './activity_instance/activity_instance.module';
+import { ActivityInstance } from './activity_instance/entities/activity_instance.entity';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { ActivityInstanceModule } from './activity_instance/activity_instance.mo
       port: 5432,
       password: '',
       username: 'jane',
-      entities: [Users, Activity, Skill],
+      entities: [Users, Activity, Skill, ActivityInstance],
       database: 'parentApp',
       synchronize: true,
       logging: true,
