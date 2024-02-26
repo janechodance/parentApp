@@ -8,6 +8,7 @@ import { ActivityModule } from './activity/activity.module';
 import { Activity } from './activity/entities/activity.entity';
 import { SkillModule } from './skill/skill.module';
 import { Skill } from './skill/entities/skill.entity';
+import { ActivityInstanceModule } from './activity_instance/activity_instance.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { Skill } from './skill/entities/skill.entity';
     UserModule,
     ActivityModule,
     SkillModule,
+    ActivityInstanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
