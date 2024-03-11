@@ -14,7 +14,7 @@ export default function StartActivity() {
   const { activityId } = useGlobalSearchParams();
   const getActivity = async () => {
     const response = await axios.get(
-      `https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`
+      `${process.env.EXPO_PUBLIC_API_URL}activity/${activityId}`
     );
     return response.data;
   };

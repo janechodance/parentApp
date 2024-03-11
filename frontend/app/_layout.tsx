@@ -42,7 +42,7 @@ export default function Layout() {
             headerTitle: "",
             headerLeft: () => (
               <TouchableOpacity onPress={() => router.push("/")}>
-                <Text style={styles.headerText}>ParentApp</Text>
+                <Text style={styles.headerText}>BoogieUp</Text>
               </TouchableOpacity>
             ),
             headerRight: () => (

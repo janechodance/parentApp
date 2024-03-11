@@ -11,7 +11,7 @@ export default function ActivityHistory() {
 
   const getActivityInstances = async () => {
     const response = await axios.get(
-      `https://9d86-148-74-83-32.ngrok-free.app/activity_instance/${activityId}/1`
+      `${process.env.EXPO_PUBLIC_API_URL}activity_instance/${activityId}/1`
     );
     return response.data;
   };

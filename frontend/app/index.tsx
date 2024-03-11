@@ -19,7 +19,7 @@ export default function App() {
   const [user, setUser] = useState("");
   useEffect(() => {
     axios
-      .get("https://9d86-148-74-83-32.ngrok-free.app/user/1")
+      .get(`${process.env.EXPO_PUBLIC_API_URL}user/1`)
       .then((res) => setUser(res.data.name))
       .catch((error) => {
         // Handle any errors that occur

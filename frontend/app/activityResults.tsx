@@ -18,7 +18,7 @@ export default function ActivityResults() {
   const [activities, setActivities] = useState<Activity[]>();
   useEffect(() => {
     axios
-      .get("https://9d86-148-74-83-32.ngrok-free.app/activity")
+      .get("http://localhost:3000/activity")
       .then((res) => setActivities(res.data))
       .catch((error) => {
         // Handle any errors that occur

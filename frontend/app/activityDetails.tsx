@@ -22,7 +22,7 @@ export default function ActivityDetails() {
   const { activityId } = useGlobalSearchParams();
   const getActivity = async () => {
     const response = await axios.get(
-      `https://9d86-148-74-83-32.ngrok-free.app/activity/${activityId}`
+      `http://localhost:3000/activity/${activityId}`
     );
     return response.data;
   };
