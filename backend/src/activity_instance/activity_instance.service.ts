@@ -12,8 +12,24 @@ export class ActivityInstanceService {
     private readonly activityInstanceRepository: Repository<ActivityInstance>,
   ) {}
 
-  create(createActivityInstanceDto: CreateActivityInstanceDto) {
-    return 'This action adds a new activityInstance';
+  createActivityInstance(
+    createActivityInstanceDto: CreateActivityInstanceDto,
+  ): Promise<ActivityInstance> {
+    const activityInstance: ActivityInstance = new ActivityInstance();
+    activityInstance.activity_id = createActivityInstanceDto.activity_id;
+    activityInstance.user_id = createActivityInstanceDto.user_id;
+    activityInstance.would_repeat = createActivityInstanceDto.would_repeat;
+    activityInstance.parent_rating = createActivityInstanceDto.parent_rating;
+    activityInstance.complete = createActivityInstanceDto.complete;
+    activityInstance.child_rating = createActivityInstanceDto.child_rating;
+    activityInstance.difficulty = createActivityInstanceDto.difficulty;
+    activityInstance.challanges = createActivityInstanceDto.challanges;
+    activityInstance.time_spent = createActivityInstanceDto.time_spent;
+    activityInstance.materials_used = createActivityInstanceDto.materials_used;
+    activityInstance.notes = createActivityInstanceDto.notes;
+    activityInstance.image = createActivityInstanceDto.image;
+    activityInstance.date = createActivityInstanceDto.date;
+    return this.activityInstanceRepository.save(activityInstance);
   }
 
   findAll() {

@@ -19,7 +19,9 @@ export class ActivityInstanceController {
 
   @Post()
   create(@Body() createActivityInstanceDto: CreateActivityInstanceDto) {
-    return this.activityInstanceService.create(createActivityInstanceDto);
+    return this.activityInstanceService.createActivityInstance(
+      createActivityInstanceDto,
+    );
   }
 
   @Get()
