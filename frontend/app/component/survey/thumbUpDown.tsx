@@ -1,9 +1,8 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import ThumbUp from "../../../assets/icons/thumbUp.svg";
 import ThumbDown from "../../../assets/icons/thumbDown.svg";
 import ThumbsUpSelected from "../../../assets/icons/thumbUpSelected.svg";
 import ThumbsDownSelected from "../../../assets/icons/thumbDownSelected.svg";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 interface thumbUpDownProps {
   value: string;

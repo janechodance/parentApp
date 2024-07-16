@@ -1,5 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 interface noteDisplayProps {
   note: string;

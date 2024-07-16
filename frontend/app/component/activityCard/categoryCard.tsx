@@ -1,6 +1,5 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import ActivityImage2 from "../../../assets/background/activityImage2.svg";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 interface categoryCardProps {
   catergory: string;

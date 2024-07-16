@@ -22,7 +22,7 @@ export default function ActivityDetails() {
   const { activityId } = useGlobalSearchParams();
   const getActivity = async () => {
     const response = await axios.get(
-      `http://localhost:3000/activity/${activityId}`
+      `${process.env.EXPO_PUBLIC_API_URL}/activity/${activityId}`
     );
     return response.data;
   };

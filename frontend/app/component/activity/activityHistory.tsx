@@ -11,7 +11,7 @@ export default function ActivityHistory() {
 
   const getActivityInstances = async () => {
     const response = await axios.get(
-      `${process.env.EXPO_PUBLIC_API_URL}activity_instance/${activityId}/1`
+      `${process.env.EXPO_PUBLIC_API_URL}/activity_instance/${activityId}/1`
     );
     return response.data;
   };

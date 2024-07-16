@@ -1,9 +1,13 @@
-import { View, Text, StyleSheet, Image } from "react-native";
 import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
   FlatList,
   ScrollView,
   TouchableOpacity,
-} from "react-native-gesture-handler";
+} from "react-native";
+
 import { router } from "expo-router";
 import ActivityCard from "./component/activityCard/activityCard";
 import "react-native-get-random-values";
@@ -18,7 +22,7 @@ export default function ActivityResults() {
   const [activities, setActivities] = useState<Activity[]>();
   useEffect(() => {
     axios
-      .get("http://localhost:3000/activity")
+      .get(`${process.env.EXPO_PUBLIC_API_URL}/activity`)
       .then((res) => setActivities(res.data))
       .catch((error) => {
         // Handle any errors that occur

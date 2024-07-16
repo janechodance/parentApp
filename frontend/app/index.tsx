@@ -1,7 +1,13 @@
 import { router } from "expo-router";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import WeekReview from "./component/homePage/weekReview";
-import { ScrollView } from "react-native-gesture-handler";
 import ActivityCarousel from "./component/homePage/activityCarousel";
 import EnergyLevel from "./component/homePage/energyLevel";
 import Catergories from "./component/homePage/categories";
@@ -19,13 +25,14 @@ export default function App() {
   const [user, setUser] = useState("");
   useEffect(() => {
     axios
-      .get(`${process.env.EXPO_PUBLIC_API_URL}user/1`)
+      .get(`${process.env.EXPO_PUBLIC_API_URL}/user/1`)
       .then((res) => setUser(res.data.name))
       .catch((error) => {
         // Handle any errors that occur
         console.error(error);
       });
   }, []);
+  console.log(process.env.EXPO_PUBLIC_API_URL);
   return (
     <ScrollView
       style={styles.scrollView}

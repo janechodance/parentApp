@@ -1,4 +1,11 @@
-import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import SurveyQuestion from "./component/survey/surveyQuestion";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
 import ThumbUpDown from "./component/survey/thumbUpDown";
@@ -12,9 +19,11 @@ import ScaleAnswer from "./component/survey/scaleAnswer";
 import { useState } from "react";
 import PlusCircle from "../assets/icons/plusCircle.svg";
 import CheckboxCollection from "./component/survey/checkboxCollection";
-import { useGlobalSearchParams } from "expo-router";
+import { router, useGlobalSearchParams } from "expo-router";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { ActivityInstance } from "./customtypes/types";
+import ArrowLeft from "../assets/icons/arrowLeft.svg";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -37,11 +46,23 @@ export default function FeedbackSurvey() {
   const [challengeSelected, setChallengeSelected] = useState<number[] | []>([]);
   const [materialSelected, setMaterialSelected] = useState<number[] | []>([]);
   const { activityId } = useGlobalSearchParams();
+  const [activityInstance, setActivityInstance] = useState<ActivityInstance>();
   const getActivity = async () => {
     const response = await axios.get(
-      `http://localhost:3000/activity/${activityId}`
+      `${process.env.EXPO_PUBLIC_API_URL}/${activityId}`
     );
     return response.data;
+  };
+  const postActivityInstance = () => {
+    axios
+      .post(`${process.env.EXPO_PUBLIC_API_URL}/activity_instance`, {})
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    console.log("submit");
   };
   const {
     isLoading,
@@ -57,6 +78,9 @@ export default function FeedbackSurvey() {
       contentContainerStyle={{ alignItems: "center" }}
     >
       <View style={styles.container}>
+        <TouchableOpacity onPress={() => router.back()}>
+          <ArrowLeft />
+        </TouchableOpacity>
         <Text style={styles.headerText}>Feedback Survey</Text>
         <Image
           style={styles.feebackImage}
@@ -176,6 +200,7 @@ export default function FeedbackSurvey() {
             buttonTo={
               complete === "yes" ? "./completeSummary" : "./incompleteSummary"
             }
+            submitFunction={postActivityInstance}
           />
         </View>
         <View style={styles.reminderContainer}>

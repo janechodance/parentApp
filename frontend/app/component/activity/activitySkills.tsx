@@ -27,7 +27,7 @@ export default function ActivitySkills({
   useEffect(() => {
     primarySkillsIds.map((id: number) => {
       axios
-        .get(`${process.env.EXPO_PUBLIC_API_URL}skill/${id}`)
+        .get(`${process.env.EXPO_PUBLIC_API_URL}/skill/${id}`)
         .then((res) => {
           skills.push({ name: res.data.name, primary: true });
           skills.sort((b, a) => Number(a.primary) - Number(b.primary));
@@ -40,7 +40,7 @@ export default function ActivitySkills({
     });
     secondarySkillsIds.map((id: number) => {
       axios
-        .get(`${process.env.EXPO_PUBLIC_API_URL}skill/${id}`)
+        .get(`${process.env.EXPO_PUBLIC_API_URL}/skill/${id}`)
         .then((res) => {
           skills.push({ name: res.data.name, primary: false });
           setSkills([...skills]);

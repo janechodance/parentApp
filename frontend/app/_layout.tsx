@@ -1,8 +1,7 @@
 import { Stack } from "expo-router/stack";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import * as Font from "expo-font";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { router } from "expo-router";
 import HamburgerMenu from "./component/layout/menu";
 import { MenuProvider } from "react-native-popup-menu";

@@ -1,5 +1,5 @@
-import { StyleSheet, View, Text } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
+
 export default function Alerts() {
   return (
     <ScrollView

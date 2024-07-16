@@ -1,9 +1,14 @@
-import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  View,
+  ScrollView,
+} from "react-native";
 import HeaderWithNotes from "./component/header/headerWithNotes";
 import { useState } from "react";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
 import ActivityMaterials from "./component/activity/activityMaterials";
-import { ScrollView } from "react-native-gesture-handler";
 import ActivityInstructions from "./component/activity/activityInstructions";
 import ActivityImages from "./component/activity/activiyImages";
 import axios from "axios";
@@ -14,7 +19,7 @@ export default function StartActivity() {
   const { activityId } = useGlobalSearchParams();
   const getActivity = async () => {
     const response = await axios.get(
-      `${process.env.EXPO_PUBLIC_API_URL}activity/${activityId}`
+      `${process.env.EXPO_PUBLIC_API_URL}/activity/${activityId}`
     );
     return response.data;
   };

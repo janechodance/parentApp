@@ -1,5 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import OneButtonFooter from "./component/footer/oneButtonFooter";
 import RadioButtonCollection from "./component/survey/radioButtonCollection";
 import ClientSurveyImage from "../assets/background/clientSurveyImage.svg";

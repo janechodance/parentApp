@@ -5,11 +5,13 @@ interface oneButtonFooterProps {
   buttonText: string;
   buttonTo: string;
   activityId?: number;
+  submitFunction?: () => void;
 }
 export default function OneButtonFooter({
   buttonText,
   buttonTo,
   activityId,
+  submitFunction,
 }: oneButtonFooterProps) {
   return (
     <Link
@@ -17,6 +19,7 @@ export default function OneButtonFooter({
         pathname: buttonTo,
         params: { activityId: activityId },
       }}
+      onPress={submitFunction ? () => submitFunction : undefined}
     >
       <View style={styles.footerContainer}>
         <View style={styles.submitButton}>
