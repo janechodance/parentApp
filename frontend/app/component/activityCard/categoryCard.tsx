@@ -1,18 +1,42 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ImageSourcePropType,
+} from "react-native";
 import ActivityImage2 from "../../../assets/background/activityImage2.svg";
 
 interface categoryCardProps {
-  catergory: string;
+  category: string;
+  imageSource?: ImageSourcePropType | undefined;
 }
 
-export default function CategoryCard({ catergory }: categoryCardProps) {
+export default function CategoryCard({
+  category,
+  imageSource,
+}: categoryCardProps) {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.background}>
-        <ActivityImage2 />
+        {imageSource ? (
+          <Image
+            source={imageSource}
+            style={{
+              width: "100%",
+              height: "100%",
+              borderTopLeftRadius: 8,
+              borderTopRightRadius: 8,
+            }}
+            resizeMode="cover"
+          />
+        ) : (
+          <ActivityImage2 />
+        )}
       </View>
       <View style={styles.contentContainer}>
-        <Text style={styles.headerText}>{catergory}</Text>
+        <Text style={styles.headerText}>{category}</Text>
       </View>
     </TouchableOpacity>
   );

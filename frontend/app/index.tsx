@@ -10,7 +10,7 @@ import {
 import WeekReview from "./component/homePage/weekReview";
 import ActivityCarousel from "./component/homePage/activityCarousel";
 import EnergyLevel from "./component/homePage/energyLevel";
-import Catergories from "./component/homePage/categories";
+import Categories from "./component/homePage/categories";
 import Quote from "./component/homePage/quote";
 import Paint from "../assets/background/paint.svg";
 import Diamonds from "../assets/background/diamonds.svg";
@@ -96,7 +96,7 @@ export default function App() {
           <Paint />
         </View>
         <View style={styles.sectionContainer}>
-          <Catergories />
+          <Categories />
         </View>
         <View style={styles.sectionContainer}>
           <Quote />
