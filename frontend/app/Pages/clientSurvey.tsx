@@ -1,16 +1,16 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import OneButtonFooter from "./component/footer/oneButtonFooter";
-import RadioButtonCollection from "./component/survey/radioButtonCollection";
-import ClientSurveyImage from "../assets/background/clientSurveyImage.svg";
-import LocationAnswer from "./component/survey/locationAnswer";
-import SkillAnswer from "./component/survey/skillAnswer";
-import Circles from "../assets/background/circles.svg";
-import Squiggles from "../assets/background/squiggle.svg";
-import Squares from "../assets/background/squares.svg";
-import BigSquiggle from "../assets/background/bigSquiggle.svg";
+import OneButtonFooter from "../component/footer/oneButtonFooter";
+import RadioButtonCollection from "../component/survey/radioButtonCollection";
+import ClientSurveyImage from "../../assets/background/clientSurveyImage.svg";
+import LocationAnswer from "../component/survey/locationAnswer";
+import SkillAnswer from "../component/survey/skillAnswer";
+import Circles from "../../assets/background/circles.svg";
+import Squiggles from "../../assets/background/squiggle.svg";
+import Squares from "../../assets/background/squares.svg";
+import BigSquiggle from "../../assets/background/bigSquiggle.svg";
 import { useState } from "react";
-import CheckboxCollection from "./component/survey/checkboxCollection";
-import MoodCardAnswer from "./component/survey/moodCardAnswer";
+import CheckboxCollection from "../component/survey/checkboxCollection";
+import MoodCardAnswer from "../component/survey/moodCardAnswer";
 
 export default function ClientSurvey() {
   const timeOptions = [

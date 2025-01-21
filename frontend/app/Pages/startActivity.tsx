@@ -5,12 +5,12 @@ import {
   View,
   ScrollView,
 } from "react-native";
-import HeaderWithNotes from "./component/header/headerWithNotes";
+import HeaderWithNotes from "../component/header/headerWithNotes";
 import { useState } from "react";
-import OneButtonFooter from "./component/footer/oneButtonFooter";
-import ActivityMaterials from "./component/activity/activityMaterials";
-import ActivityInstructions from "./component/activity/activityInstructions";
-import ActivityImages from "./component/activity/activiyImages";
+import OneButtonFooter from "../component/footer/oneButtonFooter";
+import ActivityMaterials from "../component/activity/activityMaterials";
+import ActivityInstructions from "../component/activity/activityInstructions";
+import ActivityImages from "../component/activity/activiyImages";
 import axios from "axios";
 import { useGlobalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";

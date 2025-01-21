@@ -5,12 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import Confetti from "../assets/background/confetti.svg";
-import OneButtonFooter from "./component/footer/oneButtonFooter";
-import ActivityHighlight from "./component/summary/activityHighlight";
-import NoteDisplay from "./component/summary/noteDisplay";
-import ProgressDisplay from "./component/summary/progressDisplay";
-import Exit from "../assets/icons/exit.svg";
+import Confetti from "../../assets/background/confetti.svg";
+import OneButtonFooter from "../component/footer/oneButtonFooter";
+import ActivityHighlight from "../component/summary/activityHighlight";
+import NoteDisplay from "../component/summary/noteDisplay";
+import ProgressDisplay from "../component/summary/progressDisplay";
+import Exit from "../../assets/icons/exit.svg";
 import { router } from "expo-router";
 
 export default function IncompleteSummary() {

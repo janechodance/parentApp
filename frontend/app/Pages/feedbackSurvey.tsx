@@ -6,24 +6,24 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import SurveyQuestion from "./component/survey/surveyQuestion";
-import OneButtonFooter from "./component/footer/oneButtonFooter";
-import ThumbUpDown from "./component/survey/thumbUpDown";
-import StarsAnswer from "./component/survey/starsAnswer";
-import MoodCardAnswer from "./component/survey/moodCardAnswer";
-import RadioButtonCollection from "./component/survey/radioButtonCollection";
-import TextAnswer from "./component/survey/textAnswer";
-import ImageUpload from "./component/survey/imageUpload";
-import NotificationBlack from "../assets/icons/notificationBlack.svg";
-import ScaleAnswer from "./component/survey/scaleAnswer";
+import SurveyQuestion from "../component/survey/surveyQuestion";
+import OneButtonFooter from "../component/footer/oneButtonFooter";
+import ThumbUpDown from "../component/survey/thumbUpDown";
+import StarsAnswer from "../component/survey/starsAnswer";
+import MoodCardAnswer from "../component/survey/moodCardAnswer";
+import RadioButtonCollection from "../component/survey/radioButtonCollection";
+import TextAnswer from "../component/survey/textAnswer";
+import ImageUpload from "../component/survey/imageUpload";
+import NotificationBlack from "../../assets/icons/notificationBlack.svg";
+import ScaleAnswer from "../component/survey/scaleAnswer";
 import { useState } from "react";
-import PlusCircle from "../assets/icons/plusCircle.svg";
-import CheckboxCollection from "./component/survey/checkboxCollection";
+import PlusCircle from "../../assets/icons/plusCircle.svg";
+import CheckboxCollection from "../component/survey/checkboxCollection";
 import { router, useGlobalSearchParams } from "expo-router";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { ActivityInstance } from "./customtypes/types";
-import ArrowLeft from "../assets/icons/arrowLeft.svg";
+import { ActivityInstance } from "../customtypes/types";
+import ArrowLeft from "../../assets/icons/arrowLeft.svg";
 
 export default function FeedbackSurvey() {
   const challengingOptions = [
@@ -84,7 +84,7 @@ export default function FeedbackSurvey() {
         <Text style={styles.headerText}>Feedback Survey</Text>
         <Image
           style={styles.feebackImage}
-          source={require("../assets/background/feedback.png")}
+          source={require("../../assets/background/feedback.png")}
         />
         <Text style={styles.descriptionHeaderText}>
           Fill out as much or as little as you like.

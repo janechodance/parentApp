@@ -1,17 +1,17 @@
 import { View, StyleSheet, Image, ScrollView } from "react-native";
-import ActivityHeader from "./component/activity/activityHeader";
-import ActivityHistory from "./component/activity/activityHistory";
-import Accordion from "./component/activity/accordion";
+import ActivityHeader from "../component/activity/activityHeader";
+import ActivityHistory from "../component/activity/activityHistory";
+import Accordion from "../component/activity/accordion";
 import { useState } from "react";
-import ActivityMaterials from "./component/activity/activityMaterials";
-import ActivityInstructions from "./component/activity/activityInstructions";
-import ActivityModifications from "./component/activity/activityModifications";
-import ActivityCredit from "./component/activity/activityCredits";
-import TwoButtonFooter from "./component/footer/twoButtonFooter";
-import HeaderWithNotes from "./component/header/headerWithNotes";
-import Pagination from "../assets/icons/pagination.svg";
+import ActivityMaterials from "../component/activity/activityMaterials";
+import ActivityInstructions from "../component/activity/activityInstructions";
+import ActivityModifications from "../component/activity/activityModifications";
+import ActivityCredit from "../component/activity/activityCredits";
+import TwoButtonFooter from "../component/footer/twoButtonFooter";
+import HeaderWithNotes from "../component/header/headerWithNotes";
+import Pagination from "../../assets/icons/pagination.svg";
 import axios from "axios";
-import ActivitySkills from "./component/activity/activitySkills";
+import ActivitySkills from "../component/activity/activitySkills";
 import { useGlobalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 
@@ -45,7 +45,7 @@ export default function ActivityDetails() {
         <View>
           <Image
             style={styles.activityImage}
-            source={require("../assets/activities/colorSortingActivity.png")}
+            source={require("../../assets/activities/colorSortingActivity.png")}
           />
           <View style={styles.paginationIcon}>
             <Pagination />

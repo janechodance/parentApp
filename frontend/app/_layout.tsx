@@ -2,7 +2,7 @@ import { Stack } from "expo-router/stack";
 import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import * as Font from "expo-font";
-import { router } from "expo-router";
+import { router, Slot, usePathname } from "expo-router";
 import HamburgerMenu from "./component/layout/menu";
 import { MenuProvider } from "react-native-popup-menu";
 import BottomNavigation from "./component/layout/bottomNavigation";
@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);
+  const pathname = usePathname();
   const queryClient = new QueryClient();
   useEffect(() => {
     async function loadFont() {
@@ -29,7 +30,12 @@ export default function Layout() {
   if (!fontLoaded) {
     return <Text>Loading...</Text>;
   }
+  const noGlobalLayoutRoutes = ["/Landing"];
 
+  console.log({ pathname });
+  if (noGlobalLayoutRoutes.some((route) => pathname.startsWith(route))) {
+    return <Slot />; // Render only the custom layout
+  }
   return (
     <QueryClientProvider client={queryClient}>
       <MenuProvider>

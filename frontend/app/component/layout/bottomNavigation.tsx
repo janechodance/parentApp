@@ -5,6 +5,7 @@ import Progress from "../../../assets/icons/progress.svg";
 import Calendar from "../../../assets/icons/calendar.svg";
 import Reminder from "../../../assets/icons/notification.svg";
 import { router } from "expo-router";
+import Landing from "../../Landing/landingPage";
 
 export default function BottomNavigation() {
   return (
@@ -43,6 +44,13 @@ export default function BottomNavigation() {
       >
         <Reminder />
         <Text style={styles.footerText}>Alerts</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => router.push("/Landing/landingPage")}
+        style={styles.footerButton}
+      >
+        <Reminder />
+        <Text style={styles.footerText}>Landing</Text>
       </TouchableOpacity>
     </View>
   );

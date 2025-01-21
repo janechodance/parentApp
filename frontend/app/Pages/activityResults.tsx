@@ -9,13 +9,13 @@ import {
 } from "react-native";
 
 import { router } from "expo-router";
-import ActivityCard from "./component/activityCard/activityCard";
+import ActivityCard from "../component/activityCard/activityCard";
 import "react-native-get-random-values";
 import { v4 as uuidv4 } from "uuid";
-import ArrowLeft from "../assets/icons/arrowLeft.svg";
-import Caret from "../assets/icons/caret.svg";
+import ArrowLeft from "../../assets/icons/arrowLeft.svg";
+import Caret from "../../assets/icons/caret.svg";
 import { useEffect, useState } from "react";
-import { Activity } from "./customtypes/types";
+import { Activity } from "../customtypes/types";
 import axios from "axios";
 
 export default function ActivityResults() {
