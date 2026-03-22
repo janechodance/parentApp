@@ -6,13 +6,17 @@ import {
   TouchableOpacity,
 } from "react-native";
 import LandingImage from "../../assets/background/landing.svg";
+import { router } from "expo-router";
 
 export default function Landing() {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>BoogieUp</Text>
       <LandingImage />
-      <TouchableOpacity style={styles.signUpButton}>
+      <TouchableOpacity
+        style={styles.signUpButton}
+        onPress={() => router.push("Landing/SignUp/emailSignUp")}
+      >
         <Text style={styles.signUpButtonText}>Sign Up with Email</Text>
       </TouchableOpacity>
       <Text style={{ ...styles.orText, marginTop: 24 }}>OR</Text>

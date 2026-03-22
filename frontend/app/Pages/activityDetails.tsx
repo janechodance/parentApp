@@ -110,8 +110,8 @@ export default function ActivityDetails() {
             width={164}
             buttonLeftText="Track Progress"
             buttonRightText="Start Activity"
-            buttonLeftTo="/feedbackSurvey"
-            buttonRightTo="/startActivity"
+            buttonLeftTo="/Pages/feedbackSurvey"
+            buttonRightTo="/Pages/startActivity"
             activityId={activity.id}
           />
         </View>

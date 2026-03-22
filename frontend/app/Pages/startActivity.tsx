@@ -19,7 +19,7 @@ export default function StartActivity() {
   const { activityId } = useGlobalSearchParams();
   const getActivity = async () => {
     const response = await axios.get(
-      `${process.env.EXPO_PUBLIC_API_URL}/activity/${activityId}`
+      `${process.env.EXPO_PUBLIC_API_URL}/activity/${activityId}`,
     );
     return response.data;
   };
@@ -109,8 +109,8 @@ export default function StartActivity() {
         <View style={styles.footer}>
           <OneButtonFooter
             buttonText="Track Progress"
-            buttonTo="../feedbackSurvey"
-            activityId={activity.id}
+            buttonTo="../Pages/feedbackSurvey"
+            params={{ activityId: activity.id }}
           />
         </View>
       </View>

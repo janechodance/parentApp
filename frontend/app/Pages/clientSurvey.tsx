@@ -141,7 +141,10 @@ export default function ClientSurvey() {
           <MoodCardAnswer />
         </View>
         <View style={styles.submitButtonContainer}>
-          <OneButtonFooter buttonText="Submit" buttonTo="../activityResults" />
+          <OneButtonFooter
+            buttonText="Submit"
+            buttonTo="../Pages/activityResults"
+          />
         </View>
       </View>
     </ScrollView>

@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 export default function Layout() {
   const [fontLoaded, setFontLoaded] = useState(false);
   const pathname = usePathname();
-  const queryClient = new QueryClient();
+  const [queryClient] = useState(() => new QueryClient());
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({

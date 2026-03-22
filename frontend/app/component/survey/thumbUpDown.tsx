@@ -13,14 +13,14 @@ export default function ThumbUpDown({ value, setValue }: thumbUpDownProps) {
     <View style={styles.answerContainer}>
       <TouchableOpacity
         onPress={() => setValue("yes")}
-        style={styles.optionsConatiner}
+        style={styles.optionsContainer}
       >
         {value === "yes" ? <ThumbsUpSelected /> : <ThumbUp />}
         <Text style={styles.text}>Yes</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => setValue("no")}
-        style={styles.optionsConatiner}
+        style={styles.optionsContainer}
       >
         {value === "no" ? <ThumbsDownSelected /> : <ThumbDown />}
         <Text style={styles.text}>No</Text>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginTop: 24,
   },
-  optionsConatiner: {
+  optionsContainer: {
     alignItems: "center",
   },
 });

@@ -44,8 +44,8 @@ export default function ActivityCard({
           width={140}
           buttonLeftText="View Details"
           buttonRightText="Start Activity"
-          buttonLeftTo="/activityDetails"
-          buttonRightTo="/startActivity"
+          buttonLeftTo="/Pages/activityDetails"
+          buttonRightTo="/Pages/startActivity"
           activityId={activity.id}
         />
       </View>

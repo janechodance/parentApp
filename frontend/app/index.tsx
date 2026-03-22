@@ -60,7 +60,7 @@ export default function App() {
             just for you!
           </Text>
           <TouchableOpacity
-            onPress={() => router.push("/clientSurvey")}
+            onPress={() => router.push("/Pages/clientSurvey")}
             style={styles.welcomeButton}
           >
             <Text style={styles.welcomeButtonText}>My Activity Finder</Text>

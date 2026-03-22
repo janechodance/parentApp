@@ -37,7 +37,7 @@ export default function ActivityResults() {
     >
       <View style={styles.container}>
         <View style={styles.firstScreen}>
-          <TouchableOpacity onPress={() => router.push("./clientSurvey")}>
+          <TouchableOpacity onPress={() => router.push("./Pages/clientSurvey")}>
             <ArrowLeft />
           </TouchableOpacity>
           <Text style={styles.headerText}>Some Options for YOU!</Text>

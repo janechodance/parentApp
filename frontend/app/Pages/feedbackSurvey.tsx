@@ -46,10 +46,11 @@ export default function FeedbackSurvey() {
   const [challengeSelected, setChallengeSelected] = useState<number[] | []>([]);
   const [materialSelected, setMaterialSelected] = useState<number[] | []>([]);
   const { activityId } = useGlobalSearchParams();
+  console.log({ activityId });
   const [activityInstance, setActivityInstance] = useState<ActivityInstance>();
   const getActivity = async () => {
     const response = await axios.get(
-      `${process.env.EXPO_PUBLIC_API_URL}/${activityId}`
+      `${process.env.EXPO_PUBLIC_API_URL}/activity/${activityId}`,
     );
     return response.data;
   };
@@ -72,6 +73,7 @@ export default function FeedbackSurvey() {
     queryKey: ["activity", activityId],
     queryFn: getActivity,
   });
+
   return !isLoading ? (
     <ScrollView
       style={styles.background}
@@ -83,7 +85,7 @@ export default function FeedbackSurvey() {
         </TouchableOpacity>
         <Text style={styles.headerText}>Feedback Survey</Text>
         <Image
-          style={styles.feebackImage}
+          style={styles.feedbackImage}
           source={require("../../assets/background/feedback.png")}
         />
         <Text style={styles.descriptionHeaderText}>
@@ -91,7 +93,8 @@ export default function FeedbackSurvey() {
         </Text>
         <Text style={styles.descriptionTextContainer}>
           <Text style={styles.descriptionText}>
-            This feedback questionnaire can be used by ParentApp to provide more{" "}
+            This feedback questionnaire can be used by ParentApp to provide
+            more{" "}
           </Text>
           <Text
             style={{ ...styles.descriptionText, fontFamily: "Arimo-Italic" }}
@@ -175,7 +178,7 @@ export default function FeedbackSurvey() {
             question="What materials did you use during the color sorting activity?"
             answer={
               <CheckboxCollection
-                options={activity!.materials}
+                options={activity!.materials ?? []}
                 optionsSelected={materialSelected}
                 setOptionsSelected={setMaterialSelected}
               />
@@ -198,7 +201,9 @@ export default function FeedbackSurvey() {
           <OneButtonFooter
             buttonText="Submit Feedback"
             buttonTo={
-              complete === "yes" ? "./completeSummary" : "./incompleteSummary"
+              complete === "yes"
+                ? "/Pages/completeSummary"
+                : "/Pages/incompleteSummary"
             }
             submitFunction={postActivityInstance}
           />
@@ -240,7 +245,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     marginTop: 28,
   },
-  feebackImage: {
+  feedbackImage: {
     height: 125,
     resizeMode: "contain",
     marginBottom: 24,

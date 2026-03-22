@@ -20,9 +20,7 @@ export default function CheckboxCollection({
 }: checkboxCollectionProps) {
   const onCheck = (index: number) => {
     if (optionsSelected.includes(index)) {
-      const optionIndex = optionsSelected.indexOf(index);
-      optionsSelected.splice(optionIndex, 1);
-      setOptionsSelected([...optionsSelected]);
+      setOptionsSelected(optionsSelected.filter((i) => i !== index));
     } else {
       setOptionsSelected([...optionsSelected, index]);
     }
@@ -30,25 +28,21 @@ export default function CheckboxCollection({
   return (
     <View>
       <Text style={styles.subText}>Select all that apply</Text>
-      <FlatList
-        data={options}
-        renderItem={({ item, index }) => (
-          <View>
-            <TouchableOpacity
-              onPress={() => onCheck(index)}
-              style={styles.container}
-            >
-              {optionsSelected.includes(index) ? (
-                <CheckboxChecked />
-              ) : (
-                <Checkbox />
-              )}
-              <Text style={styles.optionText}>{item}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-        scrollEnabled={false}
-      />
+      {options.map((item, index) => (
+        <View key={index}>
+          <TouchableOpacity
+            onPress={() => onCheck(index)}
+            style={styles.container}
+          >
+            {optionsSelected.includes(index) ? (
+              <CheckboxChecked />
+            ) : (
+              <Checkbox />
+            )}
+            <Text style={styles.optionText}>{item}</Text>
+          </TouchableOpacity>
+        </View>
+      ))}
     </View>
   );
 }
@@ -68,5 +62,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginLeft: 10,
+    fontWeight: "500",
   },
 });
